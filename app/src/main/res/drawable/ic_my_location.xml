@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:viewportWidth="20"
+    android:viewportHeight="20">
+    <path
+        android:name="blink_map_circle"
+        android:fillColor="#90a4ae"
+        android:pathData="M0.345,11.035H2.138a7.939,7.939 0,0 0,6.828 6.828v1.793A0.346,0.346 0,0 0,9.31 20H10.69a0.346,0.346 0,0 0,0.345 -0.345V17.862a7.939,7.939 0,0 0,6.828 -6.828h1.793A0.346,0.346 0,0 0,20 10.69V9.31a0.346,0.346 0,0 0,-0.345 -0.345H17.862a7.939,7.939 0,0 0,-6.828 -6.828V0.345A0.346,0.346 0,0 0,10.69 0H9.31a0.346,0.346 0,0 0,-0.345 0.345V2.138A7.939,7.939 0,0 0,2.138 8.965H0.345A0.346,0.346 0,0 0,0 9.31V10.69A0.346,0.346 0,0 0,0.345 11.035ZM10,4.138A5.862,5.862 0,1 1,4.138 10,5.862 5.862,0 0,1 10,4.138Z" />
+    <path
+        android:name="blink_map"
+        android:fillColor="#90a4ae"
+        android:pathData="M12.762,10a2.759,2.759 0,1 1,-2.759 -2.759A2.759,2.759 0,0 1,12.762 10Z" />
+</vector>
