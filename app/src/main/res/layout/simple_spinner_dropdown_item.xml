@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/tvDropDownItem"
+    android:padding="4dp"
+    android:singleLine="true"
+    style="?attr/spinnerDropDownItemStyle"
+    tools:text="dop down item"
+    android:layout_margin="@dimen/margin"
+    android:background="@drawable/spinner_item_selected"
+    />

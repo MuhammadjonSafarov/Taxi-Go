@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llcNear"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_bottom_recycle"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:paddingStart="10dp"
+    android:paddingTop="4dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="4dp">
+
+    <ProgressBar
+        android:id="@+id/ivNear"
+        android:layout_width="28dp"
+        android:layout_height="28dp" />
+</androidx.appcompat.widget.LinearLayoutCompat>
