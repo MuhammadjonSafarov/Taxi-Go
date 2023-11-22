@@ -17,9 +17,14 @@ interface IPreference {
 
     var longitude: Double
     var latitude: Double
+    var mapZoomLevel:Double
 
     var isSqliteData: Boolean
 
     var userConnectionId:String
     var userConnectionAutoId:String
+
+    var isYandexMapRoute:Boolean
+
+    var isNotMoreChoosingMap:Boolean
 }

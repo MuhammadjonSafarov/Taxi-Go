@@ -14,7 +14,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/mobile_navigation"
+        app:navGraph="@navigation/main_navigation"
         />
 
     <com.google.android.material.appbar.AppBarLayout
@@ -34,6 +34,9 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/transparent"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:titleTextColor="@color/colorBlack" />
+            app:titleTextColor="@color/colorBlack"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+            app:titleCentered="true"
+            />
     </com.google.android.material.appbar.AppBarLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

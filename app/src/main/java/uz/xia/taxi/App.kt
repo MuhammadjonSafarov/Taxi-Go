@@ -1,14 +1,13 @@
 package uz.xia.taxi
 
+import android.content.Context
 import androidx.multidex.MultiDexApplication
-import com.chuckerteam.chucker.BuildConfig
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import uz.xia.taxi.utils.CrashReportingTree
 
 @HiltAndroidApp
-class App: MultiDexApplication() {
-
+class App : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) {
@@ -16,5 +15,10 @@ class App: MultiDexApplication() {
         } else {
             Timber.plant(CrashReportingTree())
         }
+        context = this
+    }
+
+    companion object {
+        var context: Context? = null
     }
 }

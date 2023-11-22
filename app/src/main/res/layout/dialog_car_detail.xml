@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_bottom_shet"
+        />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/button_close"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginVertical="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_popup_close" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/circle_rounded_regulary"
+        app:fontFamily="@font/circle_rounded_regulary"
+        android:text="Bugun 20:00"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_auto_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_date">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_color_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/circle_rounded_regulary"
+            app:fontFamily="@font/circle_rounded_regulary"
+            android:gravity="center"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="Oq Chevrolet Malibu 2"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="15dp"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_car_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/circle_rounded_regular_bold"
+            android:text="85 595 UAA"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="15dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="3dp"
+            android:background="@drawable/shape_car_number"
+            app:fontFamily="@font/circle_rounded_regular_bold" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="wrap_content"
+        android:layout_height="0.7dp"
+        android:background="#eeeeee"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_auto_name"
+        />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/ll_buttons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/avatar_logo"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            app:srcCompat="@drawable/ic_avatar" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/message"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginHorizontal="32dp"
+            android:background="@drawable/shape_circle_car_detail"
+            android:padding="@dimen/margin_medium"
+            app:srcCompat="@drawable/message_svgrepo_com" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/more"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:background="@drawable/shape_circle_car_detail"
+            android:padding="@dimen/margin_medium"
+            app:srcCompat="@drawable/menu_svgrepo_com" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+   <!--
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/avatar_logo"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:gravity="center"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_price_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddressDestination"
+        app:srcCompat="@drawable/account_circle_com"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvUserName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/open_sans_extra_boldly"
+        android:text="Safarov Muhammadjon"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="17dp"
+        app:fontFamily="@font/open_sans_extra_boldly"
+        app:layout_constraintEnd_toStartOf="@+id/button_close"
+        app:layout_constraintStart_toEndOf="@+id/avatar_logo"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddressDestination" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/circle_rounded_regulary"
+        android:text="+998 90 063 66 90"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="14dp"
+        app:fontFamily="@font/circle_rounded_regulary"
+        app:layout_constraintStart_toEndOf="@+id/avatar_logo"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAddressDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/circle_rounded_regular_bold"
+        android:text="Bugun 17:30"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="18dp"
+        app:fontFamily="@font/circle_rounded_regular_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/circle_rounded_regulary"
+        android:gravity="center"
+        android:text="Narxi :"
+        android:textColor="@color/colorTextGray"
+        app:fontFamily="@font/circle_rounded_regulary"
+        app:layout_constraintStart_toEndOf="@+id/avatar_logo"
+        app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/circle_rounded_regular_bold"
+        android:text="100 000 so\'m"
+        android:textColor="@color/colorTextBlack"
+        app:fontFamily="@font/circle_rounded_regular_bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_price_label"
+        app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_color_label"
+        android:layout_width="72dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@color/colorTextBlue"
+        android:fontFamily="@font/circle_rounded_regular_bold"
+        android:gravity="center"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:text="Oq"
+        android:textColor="@color/colorWhite"
+        app:fontFamily="@font/circle_rounded_regular_bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_car_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/circle_rounded_regular_bold"
+        android:text="85 595 UAA"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="16dp"
+        app:fontFamily="@font/circle_rounded_regular_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_price_label" />
+-->
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/button_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/circle_rounded_regulary"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="@string/cancel"
+            android:textColor="@color/colorTextCancelButton"
+            android:textSize="15dp"
+            app:fontFamily="@font/circle_rounded_regulary" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/button_conform"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_button_primary"
+            android:fontFamily="@font/circle_rounded_regular_bold"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="Qo'ng'iroq qilish"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/circle_rounded_regular_bold" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

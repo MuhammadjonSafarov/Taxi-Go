@@ -104,7 +104,7 @@ public class MyLocationNewOverlay extends Overlay implements IMyLocationConsumer
 
         mMapView = mapView;
         mMapController = mapView.getController();
-        mCirclePaint.setARGB(0, 100, 100, 255);
+        mCirclePaint.setARGB(0, 0, 115, 255);
         mCirclePaint.setAntiAlias(true);
         mPaint.setFilterBitmap(true);
 		setPersonIcon(getBitmapFromVectorDrawable(mapView.getContext(),R.drawable.ic_person));
@@ -184,7 +184,7 @@ public class MyLocationNewOverlay extends Overlay implements IMyLocationConsumer
 
 	/**
 	 * If enabled, an accuracy circle will be drawn around your current position.
-	 * 
+	 *
 	 * @param drawAccuracyEnabled
 	 *            whether the accuracy circle will be enabled
 	 */
@@ -194,7 +194,7 @@ public class MyLocationNewOverlay extends Overlay implements IMyLocationConsumer
 
 	/**
 	 * If enabled, an accuracy circle will be drawn around your current position.
-	 * 
+	 *
 	 * @return true if enabled, false otherwise
 	 */
 	public boolean isDrawAccuracyEnabled() {
@@ -422,7 +422,7 @@ public class MyLocationNewOverlay extends Overlay implements IMyLocationConsumer
 	/**
 	 * If enabled, the map will center on your current location and automatically scroll as you
 	 * move. Scrolling the map in the UI will disable.
-	 * 
+	 *
 	 * @return true if enabled, false otherwise
 	 */
 	public boolean isFollowLocationEnabled() {
@@ -518,7 +518,7 @@ public class MyLocationNewOverlay extends Overlay implements IMyLocationConsumer
 
 	/**
 	 * If enabled, the map is receiving location updates and drawing your location on the map.
-	 * 
+	 *
 	 * @return true if enabled, false otherwise
 	 */
 	public boolean isMyLocationEnabled() {
@@ -541,7 +541,7 @@ public class MyLocationNewOverlay extends Overlay implements IMyLocationConsumer
 			return false;
 		}
 	}
-     
+
      /**
       * enables you to change the my location 'person' icon at runtime. note that the
       * hotspot is not updated with this method. see {@link #setPersonAnchor(float, float)}

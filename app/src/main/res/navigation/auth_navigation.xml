@@ -20,5 +20,9 @@
         android:name="uz.xia.taxi.ui.auth.RegisterFragment"
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register" />
-
+    <fragment
+        android:id="@+id/smsVerificationFragment"
+        android:name="uz.xia.taxi.ui.auth.verification.SmsVerificationFragment"
+        android:label="SmsVerificationFragment"
+        tools:layout="@layout/fragment_sms_verification" />
 </navigation>

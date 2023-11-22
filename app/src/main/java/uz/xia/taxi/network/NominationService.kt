@@ -1,5 +1,6 @@
 package uz.xia.taxi.network
 
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
@@ -16,7 +17,7 @@ interface NominationService {
     ): NominationResponse?
 
     @Headers("Accept-Language: uz-UZ, uz;q=0.9, uzc;q=0.8, en;q=0.7, *;q=0.5")
-    @GET("search?format=json&country=uzbekistan")
+    @GET("search?format=json")
     suspend fun searchPlaces(
         @Query("q") query: String,
         @Query("accept-language") lang: String = "uz"

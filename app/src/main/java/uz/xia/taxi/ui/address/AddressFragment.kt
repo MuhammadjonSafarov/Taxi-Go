@@ -40,7 +40,6 @@ class AddressFragment : Fragment() {
         mViewModel.getAddresses().observe(viewLifecycleOwner){
             mAdapter.submitList(it)
         }
-
         binding.floatingActionButton.setOnClickListener {
             navController.navigate(R.id.nav_address_add)
         }

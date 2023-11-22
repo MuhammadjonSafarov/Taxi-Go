@@ -7,7 +7,14 @@ object DatabaseMigrations {
 
    val MIGRATION_1_2 = object : Migration(1, 2) {
         override fun migrate(database: SupportSQLiteDatabase) {
-            database.execSQL("CREATE TABLE IF NOT EXISTS `category_data` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nameRu` TEXT NOT NULL,`nameEn` TEXT NOT NULL,`nameUzLat` TEXT NOT NULL,`nameUzKr` TEXT NOT NULL,`iconUrl` TEXT NOT NULL )")
+            database.execSQL("CREATE TABLE IF NOT EXISTS `parking_data` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `type` TEXT NOT NULL, `name_uz_kr` TEXT NOT NULL, `name_uz_lt` TEXT NOT NULL, `name_en` TEXT NOT NULL, `name_ru` TEXT NOT NULL, `district_id` INTEGER NOT NULL, `longitude` REAL NOT NULL, `latitude` REAL NOT NULL)")
+            //database.execSQL(" `parking_data` (`id`,`type`,`name_uz_kr`,`name_uz_lt`,`name_en`,`name_ru`,`district_id`,`longitude`,`latitude`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?)")
+        }
+    }
+    val MIGRATION_2_3 = object : Migration(2, 3) {
+        override fun migrate(database: SupportSQLiteDatabase) {
+            database.execSQL("CREATE TABLE IF NOT EXISTS `car_data` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `carName` TEXT NOT NULL, `carType` INTEGER NOT NULL, `carNumber` TEXT NOT NULL, `carColor` INTEGER NOT NULL, `isConditioner` INTEGER NOT NULL, `isBaggage` INTEGER NOT NULL, `isTopBaggage` INTEGER NOT NULL)")
+            //database.execSQL(" `parking_data` (`id`,`type`,`name_uz_kr`,`name_uz_lt`,`name_en`,`name_ru`,`district_id`,`longitude`,`latitude`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?)")
         }
     }
  /*
