@@ -6,16 +6,17 @@ import uz.xia.taxi.data.pref.LongPreference
 import uz.xia.taxi.data.pref.StringPreference
 import uz.xia.taxi.common.EMPTY_STRING
 import uz.xia.taxi.data.pref.DoublePreference
-
+ /* user authorization */
 private const val USER_AUTH_TOKEN = "USER_AUTH_TOKEN"
 private const val USER_EXPIRES = "USER_EXPIRES"
 private const val USER_LOGIN_TIME = "USER_LOGIN_TIME"
-
 private const val USER_NAME = "USER_NAME"
 private const val USER_LOGIN = "USER_LOGIN"
 private const val USER_ROLE = "USER_ROLE"
 private const val USER_PASSWORD = "USER_PASSWORD"
 private const val USER_PICTURE = "USER_PICTURE"
+
+
 private const val USER_CONNECTION_ID = "USER_CONNECTION_ID"
 private const val USER_CONNECTION_AUTO_ID = "USER_CONNECTION_AUTO_ID"
 private const val USER_FIRE_UID = "USER_FIRE_UID"
@@ -23,13 +24,17 @@ private const val USER_FIRE_UID = "USER_FIRE_UID"
 private const val LOCATION_TIME = "LOCATION_TIME"
 private const val LONGITUDE = "LONGITUDE"
 private const val LATITUDE = "LATITUDE"
-private const val KEY_AUTO_ID = "KEY_AUTO_ID"
+private const val MAP_ZOOM_LEVEL = "MAP_ZOOM_LEVEL"
 private const val KEY_LANGUAGE = "KEY_LANGUAGE"
 private const val KEY_SQLITE_DATA = "KEY_SQLITE_DATA"
+private const val KEY_NOT_MORE_CHOOSING_MAP = "KEY_NOT_MORE_CHOOSING_MAP"
+private const val KEY_YANDEX_MAP_ROUTING = "KEY_YANDEX_MAP_ROUTING"
+
+
 
 class PreferenceManagerImpl(sharedPreference: SharedPreferences) : IPreference {
 
-    override var language: String by StringPreference(sharedPreference, KEY_LANGUAGE,"uz")
+    override var language: String by StringPreference(sharedPreference, KEY_LANGUAGE,"en")
 
     override var authToken: String by StringPreference(sharedPreference, USER_AUTH_TOKEN, EMPTY_STRING)
 
@@ -44,13 +49,15 @@ class PreferenceManagerImpl(sharedPreference: SharedPreferences) : IPreference {
     override var userFireUid: String by StringPreference(sharedPreference, USER_FIRE_UID)
     override var userRole: String by StringPreference(sharedPreference, USER_ROLE)
     override var locationTime: Long by LongPreference(sharedPreference, LOCATION_TIME)
-
-    override var latitude: Double by DoublePreference(sharedPreference, LATITUDE,"0.0")
-    override var longitude: Double by DoublePreference(sharedPreference, LONGITUDE,"0.0")
+    override var latitude: Double by DoublePreference(sharedPreference, LATITUDE,"41.308772")
+    override var longitude: Double by DoublePreference(sharedPreference, LONGITUDE,"69.247162")
+    override var mapZoomLevel: Double by DoublePreference(sharedPreference,MAP_ZOOM_LEVEL,"7.0")
     override var isSqliteData: Boolean by BooleanPreference(sharedPreference, KEY_SQLITE_DATA,true)
 
     override var userConnectionId: String by StringPreference(sharedPreference, USER_CONNECTION_ID)
     override var userConnectionAutoId: String by StringPreference(sharedPreference,
-        USER_CONNECTION_AUTO_ID
-    )
+        USER_CONNECTION_AUTO_ID)
+
+    override var isYandexMapRoute: Boolean by BooleanPreference(sharedPreference, KEY_YANDEX_MAP_ROUTING)
+    override var isNotMoreChoosingMap: Boolean by BooleanPreference(sharedPreference,KEY_NOT_MORE_CHOOSING_MAP)
 }

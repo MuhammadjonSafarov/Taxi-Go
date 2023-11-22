@@ -2,10 +2,11 @@ package uz.xia.taxi.ui.auth
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import dagger.hilt.android.AndroidEntryPoint
 import uz.xia.taxi.R
 import uz.xia.taxi.databinding.ActivityAuthBinding
 import uz.xia.taxi.utils.setStatusBarColor
-
+@AndroidEntryPoint
 class AuthActivity :AppCompatActivity() {
     lateinit var binding: ActivityAuthBinding
     override fun onCreate(savedInstanceState: Bundle?) {

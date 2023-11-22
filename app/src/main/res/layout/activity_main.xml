@@ -21,8 +21,7 @@
         app:itemBackground="@drawable/nav_item_background"
         app:itemIconPadding="12dp"
         app:itemIconSize="26dp"
-        app:itemIconTint="@color/navigation_icon_color"
-        app:itemTextColor="@color/navigation_icon_color"
-        app:menu="@menu/activity_main_drawer"
-        />
+        app:itemIconTint="@color/colorMenuIconSelect"
+        app:itemTextColor="@color/navigation_item_text_color"
+        app:menu="@menu/activity_main_drawer" />
 </androidx.drawerlayout.widget.DrawerLayout>

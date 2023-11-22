@@ -1,0 +1,1170 @@
+{
+  "success": true,
+  "data": {
+    "from": {
+      "locations": [
+        {
+          "code": 1726,
+          "name_ru": "Город Ташкент",
+          "name_uz": "Toshkent shahri",
+          "name_en": "Tashkent city"
+        },
+        {
+          "code": 1706,
+          "name_ru": "Бухарская область",
+          "name_uz": "Buxoro viloyati",
+          "name_en": "Bukhara region"
+        },
+        {
+          "code": 1710,
+          "name_ru": "Кашкадарьинская область",
+          "name_uz": "Qashqadaryo viloyat",
+          "name_en": "Kashkadarya region"
+        },
+        {
+          "code": 1722,
+          "name_ru": "Сурхандарьинская область",
+          "name_uz": "Surxondaryo viloyati",
+          "name_en": "Surkhandarya region"
+        },
+        {
+          "code": 1733,
+          "name_ru": "Хорезмская область",
+          "name_uz": "Xorazm viloyati",
+          "name_en": "Khorezm region"
+        }
+      ],
+      "stations": [
+        {
+          "code": 1726,
+          "location_code": 1726,
+          "name_ru": "Ташкент",
+          "name_uz": "Toshkent",
+          "name_en": "Tashkent"
+        },
+        {
+          "code": 1706,
+          "location_code": 1706,
+          "name_ru": "Бухара",
+          "name_uz": "Buxoro",
+          "name_en": "Bukhara"
+        },
+        {
+          "code": 1722212,
+          "location_code": 1722,
+          "name_ru": "Джаркурган",
+          "name_uz": "Jarqo'rg'on",
+          "name_en": "Djarkurgan"
+        },
+        {
+          "code": 1710224,
+          "location_code": 1710,
+          "name_ru": "Карши",
+          "name_uz": "Qarshi",
+          "name_en": "Karshi"
+        },
+        {
+          "code": 1722210,
+          "location_code": 1722,
+          "name_ru": "Денау",
+          "name_uz": "Denov",
+          "name_en": "Denov"
+        },
+        {
+          "code": 1710245,
+          "location_code": 1710,
+          "name_ru": "Шахрисабз",
+          "name_uz": "Shaxrisabz",
+          "name_en": "Shaxrisabz"
+        },
+        {
+          "code": 1722226872,
+          "location_code": 1722,
+          "name_ru": "Шурчи",
+          "name_uz": "Sho'rchi",
+          "name_en": "Shurchi"
+        },
+        {
+          "code": 1706204501,
+          "location_code": 1706,
+          "name_ru": "Олот",
+          "name_uz": "Olot",
+          "name_en": "Olot"
+        },
+        {
+          "code": 1733226,
+          "location_code": 1733,
+          "name_ru": "Хива",
+          "name_uz": "Xiva",
+          "name_en": "Khiva"
+        },
+        {
+          "code": 1710232579,
+          "location_code": 1722,
+          "name_ru": "Сариасия",
+          "name_uz": "Sariosiyo",
+          "name_en": "Sariosiyo"
+        },
+        {
+          "code": 1722401,
+          "location_code": 1722,
+          "name_ru": "Термез",
+          "name_uz": "Termiz",
+          "name_en": "Termez"
+        }
+      ]
+    },
+    "to": {
+      "locations": [
+        {
+          "code": 9900,
+          "name_ru": "Международные рейсы",
+          "name_uz": "Xalqaro reys",
+          "name_en": "International routes"
+        },
+        {
+          "code": 1708,
+          "name_ru": "Джизакская область",
+          "name_uz": "Jizzax viloyati",
+          "name_en": "Jizzakh city"
+        },
+        {
+          "code": 1706,
+          "name_ru": "Бухарская область",
+          "name_uz": "Buxoro viloyati",
+          "name_en": "Bukhara region"
+        },
+        {
+          "code": 1735,
+          "name_ru": "Каракалпакская Республика",
+          "name_uz": "Qoraqalpogiston Respublikasi",
+          "name_en": "Karakalpak Republic"
+        },
+        {
+          "code": 1712,
+          "name_ru": "Навоийская область",
+          "name_uz": "Navoiy viloyati",
+          "name_en": "Navoi region"
+        },
+        {
+          "code": 1718,
+          "name_ru": "Самаркандская область",
+          "name_uz": "Samarqand viloyati",
+          "name_en": "Samarkand region"
+        },
+        {
+          "code": 1722,
+          "name_ru": "Сурхандарьинская область",
+          "name_uz": "Surxondaryo viloyati",
+          "name_en": "Surkhandarya region"
+        },
+        {
+          "code": 1733,
+          "name_ru": "Хорезмская область",
+          "name_uz": "Xorazm viloyati",
+          "name_en": "Khorezm region"
+        },
+        {
+          "code": 1726,
+          "name_ru": "Город Ташкент",
+          "name_uz": "Toshkent shahri",
+          "name_en": "Tashkent city"
+        },
+        {
+          "code": 1710,
+          "name_ru": "Кашкадарьинская область",
+          "name_uz": "Qashqadaryo viloyat",
+          "name_en": "Kashkadarya region"
+        }
+      ],
+      "stations": [
+        {
+          "code": 990002010,
+          "location_code": 9900,
+          "name_ru": "Астана",
+          "name_uz": "Astana",
+          "name_en": "Astana"
+        },
+        {
+          "code": 990002006,
+          "location_code": 9900,
+          "name_ru": "Иргели",
+          "name_uz": "Irgeli",
+          "name_en": "Irgeli"
+        },
+        {
+          "code": 1735204501,
+          "location_code": 1735,
+          "name_ru": "Мангит",
+          "name_uz": "Mang'it",
+          "name_en": "Mangit"
+        },
+        {
+          "code": 1712248,
+          "location_code": 1712,
+          "name_ru": "Учкудук",
+          "name_uz": "Uchquduq",
+          "name_en": "Uchkuduk"
+        },
+        {
+          "code": 1722226872,
+          "location_code": 1722,
+          "name_ru": "Шурчи",
+          "name_uz": "Sho'rchi",
+          "name_en": "Shurchi"
+        },
+        {
+          "code": 1718212,
+          "location_code": 1718,
+          "name_ru": "Иштихон",
+          "name_uz": "Ishtixon",
+          "name_en": "Ishtixan"
+        },
+        {
+          "code": 1710232579,
+          "location_code": 1722,
+          "name_ru": "Сариасия",
+          "name_uz": "Sariosiyo",
+          "name_en": "Sariosiyo"
+        },
+        {
+          "code": 1735233,
+          "location_code": 1733,
+          "name_ru": "Турткуль",
+          "name_uz": "Tortkol",
+          "name_en": "Tortkol"
+        },
+        {
+          "code": 990003001,
+          "location_code": 9900,
+          "name_ru": "Бишкек",
+          "name_uz": "Bishkek",
+          "name_en": "Bishkek"
+        },
+        {
+          "code": 990002007,
+          "location_code": 9900,
+          "name_ru": "Караганда",
+          "name_uz": "Karaganda",
+          "name_en": "Karaganda"
+        },
+        {
+          "code": 1733223,
+          "location_code": 1733,
+          "name_ru": "Хонка",
+          "name_uz": "Xonka",
+          "name_en": "Xonka"
+        },
+        {
+          "code": 1722212,
+          "location_code": 1722,
+          "name_ru": "Джаркурган",
+          "name_uz": "Jarqo'rg'on",
+          "name_en": "Djarkurgan"
+        },
+        {
+          "code": 1718203551,
+          "location_code": 1718,
+          "name_ru": "Лоиш",
+          "name_uz": "Loish",
+          "name_en": "Loish"
+        },
+        {
+          "code": 1722202551,
+          "location_code": 1722,
+          "name_ru": "Ангор",
+          "name_uz": "Angor",
+          "name_en": "Angor"
+        },
+        {
+          "code": 1733217,
+          "location_code": 1733,
+          "name_ru": "Ургенч",
+          "name_uz": "Urganch",
+          "name_en": "Urgench"
+        },
+        {
+          "code": 1718215,
+          "location_code": 1718,
+          "name_ru": "Каттакурган",
+          "name_uz": "Kattaqo'rg'on",
+          "name_en": "Kattakurgan"
+        },
+        {
+          "code": 1706242505,
+          "location_code": 1706,
+          "name_ru": "Газли",
+          "name_uz": "Gazli",
+          "name_en": "Gazli"
+        },
+        {
+          "code": 990001011,
+          "location_code": 9900,
+          "name_ru": "Самара",
+          "name_uz": "Samara",
+          "name_en": "Samara"
+        },
+        {
+          "code": 1722214586,
+          "location_code": 1706,
+          "name_ru": "Навбахор",
+          "name_uz": "Navbaxor",
+          "name_en": "Navbaxor"
+        },
+        {
+          "code": 1722223,
+          "location_code": 1722,
+          "name_ru": "Шерабад",
+          "name_uz": "Sherobod",
+          "name_en": "Sherabad"
+        },
+        {
+          "code": 1733220,
+          "location_code": 1733,
+          "name_ru": "Хазарасп",
+          "name_uz": "Xazarasp",
+          "name_en": "Xazarasp"
+        },
+        {
+          "code": 1712211,
+          "location_code": 1712,
+          "name_ru": "Конимех",
+          "name_uz": "Konimex",
+          "name_en": "Konimex"
+        },
+        {
+          "code": 990002001,
+          "location_code": 9900,
+          "name_ru": "Актобе",
+          "name_uz": "Aktobe",
+          "name_en": "Aktobe"
+        },
+        {
+          "code": 1718203816,
+          "location_code": 1712,
+          "name_ru": "Зарафшан",
+          "name_uz": "Zarafshon",
+          "name_en": "Zarafshan"
+        },
+        {
+          "code": 1708,
+          "location_code": 1708,
+          "name_ru": "Жиззах",
+          "name_uz": "Jizzax",
+          "name_en": "Jizzakh"
+        },
+        {
+          "code": 1718218554,
+          "location_code": 1718,
+          "name_ru": "Мирбазар",
+          "name_uz": "Mirbozor",
+          "name_en": "Mirbazar"
+        },
+        {
+          "code": 1733208,
+          "location_code": 1733,
+          "name_ru": "Гурлан",
+          "name_uz": "Gurlan",
+          "name_en": "Gurlan"
+        },
+        {
+          "code": 990001013,
+          "location_code": 9900,
+          "name_ru": "Уфа",
+          "name_uz": "Ufa",
+          "name_en": "Ufa"
+        },
+        {
+          "code": 990003099,
+          "location_code": 9900,
+          "name_ru": "Худжанд",
+          "name_uz": "Xo`djand",
+          "name_en": "Khujand"
+        },
+        {
+          "code": 990001007,
+          "location_code": 9900,
+          "name_ru": "Оренбург",
+          "name_uz": "Orenburg",
+          "name_en": "Orenburg"
+        },
+        {
+          "code": 1735207501,
+          "location_code": 1735,
+          "name_ru": "Беруни",
+          "name_uz": "Beruniy",
+          "name_en": "Beruniy"
+        },
+        {
+          "code": 1714212855,
+          "location_code": 1722,
+          "name_ru": "Кумкурган",
+          "name_uz": "Qumqorg'on",
+          "name_en": "Qumqorg'on"
+        },
+        {
+          "code": 990002009,
+          "location_code": 9900,
+          "name_ru": "Кызылорда",
+          "name_uz": "Qizilo'rda",
+          "name_en": "Kyzylorda"
+        },
+        {
+          "code": 1718,
+          "location_code": 1718,
+          "name_ru": "Самарканд",
+          "name_uz": "Samarqand",
+          "name_en": "Samarkand"
+        },
+        {
+          "code": 990002002,
+          "location_code": 9900,
+          "name_ru": "Алматы",
+          "name_uz": "Olma-ota",
+          "name_en": "Almati"
+        },
+        {
+          "code": 990001005,
+          "location_code": 9900,
+          "name_ru": "Новосибирск",
+          "name_uz": "Novosibirsk",
+          "name_en": "Novosibirsk"
+        },
+        {
+          "code": 990001009,
+          "location_code": 9900,
+          "name_ru": "Пермь",
+          "name_uz": "Perm",
+          "name_en": "Perm"
+        },
+        {
+          "code": 1722401,
+          "location_code": 1722,
+          "name_ru": "Термез",
+          "name_uz": "Termiz",
+          "name_en": "Termez"
+        },
+        {
+          "code": 990001003,
+          "location_code": 9900,
+          "name_ru": "Москва",
+          "name_uz": "Moskva",
+          "name_en": "Moskva"
+        },
+        {
+          "code": 1712216501,
+          "location_code": 1712,
+          "name_ru": "Кызылтепа",
+          "name_uz": "Qiziltepa",
+          "name_en": "Kyzyltepa"
+        },
+        {
+          "code": 1710212,
+          "location_code": 1722,
+          "name_ru": "Дехканабад",
+          "name_uz": "Dexqonobod",
+          "name_en": "Dehkanabad"
+        },
+        {
+          "code": 1712,
+          "location_code": 1712,
+          "name_ru": "Навоий",
+          "name_uz": "Navoiy",
+          "name_en": "Nawai"
+        },
+        {
+          "code": 1722221,
+          "location_code": 1722,
+          "name_ru": "Узун",
+          "name_uz": "Uzun",
+          "name_en": "Uzun"
+        },
+        {
+          "code": 1722210,
+          "location_code": 1722,
+          "name_ru": "Денау",
+          "name_uz": "Denov",
+          "name_en": "Denov"
+        },
+        {
+          "code": 1706215,
+          "location_code": 1706,
+          "name_ru": "Гиждуван",
+          "name_uz": "G'ijduvon",
+          "name_en": "Gijduvan"
+        },
+        {
+          "code": 1726,
+          "location_code": 1726,
+          "name_ru": "Ташкент",
+          "name_uz": "Toshkent",
+          "name_en": "Tashkent"
+        },
+        {
+          "code": 1706,
+          "location_code": 1706,
+          "name_ru": "Бухара",
+          "name_uz": "Buxoro",
+          "name_en": "Bukhara"
+        },
+        {
+          "code": 1718224502,
+          "location_code": 1718,
+          "name_ru": "Челак",
+          "name_uz": "Chelak",
+          "name_en": "Chelak"
+        },
+        {
+          "code": 1710207,
+          "location_code": 1710,
+          "name_ru": "Гузар",
+          "name_uz": "Guzor",
+          "name_en": "Guzor"
+        },
+        {
+          "code": 1710242501,
+          "location_code": 1710,
+          "name_ru": "Чиракчи",
+          "name_uz": "Chiroqchi",
+          "name_en": "Chirakchi"
+        },
+        {
+          "code": 1710224,
+          "location_code": 1710,
+          "name_ru": "Карши",
+          "name_uz": "Qarshi",
+          "name_en": "Karshi"
+        },
+        {
+          "code": 1718216551,
+          "location_code": 1718,
+          "name_ru": "Кушрабад",
+          "name_uz": "Qoshrabod",
+          "name_en": "Kushrabod"
+        },
+        {
+          "code": 1718235817,
+          "location_code": 1718,
+          "name_ru": "Джам",
+          "name_uz": "Jom",
+          "name_en": "Jom"
+        },
+        {
+          "code": null,
+          "location_code": 1710,
+          "name_ru": "Сарикуль",
+          "name_uz": "Sarikul",
+          "name_en": "Sarikul"
+        },
+        {
+          "code": 1710240551,
+          "location_code": 1710,
+          "name_ru": "Еттитом",
+          "name_uz": "Ettitom",
+          "name_en": "Ettitom"
+        },
+        {
+          "code": 1718216810,
+          "location_code": 1718,
+          "name_ru": "Джуш",
+          "name_uz": "Jo'sh",
+          "name_en": "Josh"
+        },
+        {
+          "code": 1733212827,
+          "location_code": 1722,
+          "name_ru": "Дарбанд",
+          "name_uz": "Darband",
+          "name_en": "Darband"
+        },
+        {
+          "code": 1718212555,
+          "location_code": 1718,
+          "name_ru": "Метан",
+          "name_uz": "Metan",
+          "name_en": "Metan"
+        },
+        {
+          "code": 1718216814,
+          "location_code": 1718,
+          "name_ru": "Зармитан",
+          "name_uz": "Zarmitan",
+          "name_en": "Zarmitan"
+        },
+        {
+          "code": 1710250501,
+          "location_code": 1710,
+          "name_ru": "Яккабаг",
+          "name_uz": "Yakkabog'",
+          "name_en": "Yakkabag"
+        },
+        {
+          "code": 1710220866,
+          "location_code": 1710,
+          "name_ru": "Чим",
+          "name_uz": "Chim",
+          "name_en": "Chim"
+        },
+        {
+          "code": 1710245,
+          "location_code": 1710,
+          "name_ru": "Шахрисабз",
+          "name_uz": "Shaxrisabz",
+          "name_en": "Shaxrisabz"
+        },
+        {
+          "code": 1706230,
+          "location_code": 1706,
+          "name_ru": "Каракуль",
+          "name_uz": "Qorako'l",
+          "name_en": "Karakul"
+        },
+        {
+          "code": 1733226,
+          "location_code": 1733,
+          "name_ru": "Хива",
+          "name_uz": "Xiva",
+          "name_en": "Khiva"
+        }
+      ]
+    },
+    "locations": [
+      {
+        "code": 1726,
+        "name_ru": "Город Ташкент",
+        "name_uz": "Toshkent shahri",
+        "name_en": "Tashkent city"
+      },
+      {
+        "code": 9900,
+        "name_ru": "Международные рейсы",
+        "name_uz": "Xalqaro reys",
+        "name_en": "International routes"
+      },
+      {
+        "code": 1708,
+        "name_ru": "Джизакская область",
+        "name_uz": "Jizzax viloyati",
+        "name_en": "Jizzakh city"
+      },
+      {
+        "code": 1706,
+        "name_ru": "Бухарская область",
+        "name_uz": "Buxoro viloyati",
+        "name_en": "Bukhara region"
+      },
+      {
+        "code": 1735,
+        "name_ru": "Каракалпакская Республика",
+        "name_uz": "Qoraqalpogiston Respublikasi",
+        "name_en": "Karakalpak Republic"
+      },
+      {
+        "code": 1712,
+        "name_ru": "Навоийская область",
+        "name_uz": "Navoiy viloyati",
+        "name_en": "Navoi region"
+      },
+      {
+        "code": 1718,
+        "name_ru": "Самаркандская область",
+        "name_uz": "Samarqand viloyati",
+        "name_en": "Samarkand region"
+      },
+      {
+        "code": 1722,
+        "name_ru": "Сурхандарьинская область",
+        "name_uz": "Surxondaryo viloyati",
+        "name_en": "Surkhandarya region"
+      },
+      {
+        "code": 1733,
+        "name_ru": "Хорезмская область",
+        "name_uz": "Xorazm viloyati",
+        "name_en": "Khorezm region"
+      },
+      {
+        "code": 1710,
+        "name_ru": "Кашкадарьинская область",
+        "name_uz": "Qashqadaryo viloyat",
+        "name_en": "Kashkadarya region"
+      }
+    ],
+    "stations": [
+      {
+        "code": 1726,
+        "location_code": 1726,
+        "name_ru": "Ташкент",
+        "name_uz": "Toshkent",
+        "name_en": "Tashkent"
+      },
+      {
+        "code": 990002010,
+        "location_code": 9900,
+        "name_ru": "Астана",
+        "name_uz": "Astana",
+        "name_en": "Astana"
+      },
+      {
+        "code": 990002006,
+        "location_code": 9900,
+        "name_ru": "Иргели",
+        "name_uz": "Irgeli",
+        "name_en": "Irgeli"
+      },
+      {
+        "code": 1735204501,
+        "location_code": 1735,
+        "name_ru": "Мангит",
+        "name_uz": "Mang'it",
+        "name_en": "Mangit"
+      },
+      {
+        "code": 1712248,
+        "location_code": 1712,
+        "name_ru": "Учкудук",
+        "name_uz": "Uchquduq",
+        "name_en": "Uchkuduk"
+      },
+      {
+        "code": 1722226872,
+        "location_code": 1722,
+        "name_ru": "Шурчи",
+        "name_uz": "Sho'rchi",
+        "name_en": "Shurchi"
+      },
+      {
+        "code": 1718212,
+        "location_code": 1718,
+        "name_ru": "Иштихон",
+        "name_uz": "Ishtixon",
+        "name_en": "Ishtixan"
+      },
+      {
+        "code": 1710232579,
+        "location_code": 1722,
+        "name_ru": "Сариасия",
+        "name_uz": "Sariosiyo",
+        "name_en": "Sariosiyo"
+      },
+      {
+        "code": 1735233,
+        "location_code": 1733,
+        "name_ru": "Турткуль",
+        "name_uz": "Tortkol",
+        "name_en": "Tortkol"
+      },
+      {
+        "code": 990003001,
+        "location_code": 9900,
+        "name_ru": "Бишкек",
+        "name_uz": "Bishkek",
+        "name_en": "Bishkek"
+      },
+      {
+        "code": 990002007,
+        "location_code": 9900,
+        "name_ru": "Караганда",
+        "name_uz": "Karaganda",
+        "name_en": "Karaganda"
+      },
+      {
+        "code": 1733223,
+        "location_code": 1733,
+        "name_ru": "Хонка",
+        "name_uz": "Xonka",
+        "name_en": "Xonka"
+      },
+      {
+        "code": 1722212,
+        "location_code": 1722,
+        "name_ru": "Джаркурган",
+        "name_uz": "Jarqo'rg'on",
+        "name_en": "Djarkurgan"
+      },
+      {
+        "code": 1718203551,
+        "location_code": 1718,
+        "name_ru": "Лоиш",
+        "name_uz": "Loish",
+        "name_en": "Loish"
+      },
+      {
+        "code": 1722202551,
+        "location_code": 1722,
+        "name_ru": "Ангор",
+        "name_uz": "Angor",
+        "name_en": "Angor"
+      },
+      {
+        "code": 1733217,
+        "location_code": 1733,
+        "name_ru": "Ургенч",
+        "name_uz": "Urganch",
+        "name_en": "Urgench"
+      },
+      {
+        "code": 1718215,
+        "location_code": 1718,
+        "name_ru": "Каттакурган",
+        "name_uz": "Kattaqo'rg'on",
+        "name_en": "Kattakurgan"
+      },
+      {
+        "code": 1706242505,
+        "location_code": 1706,
+        "name_ru": "Газли",
+        "name_uz": "Gazli",
+        "name_en": "Gazli"
+      },
+      {
+        "code": 990001011,
+        "location_code": 9900,
+        "name_ru": "Самара",
+        "name_uz": "Samara",
+        "name_en": "Samara"
+      },
+      {
+        "code": 1722214586,
+        "location_code": 1706,
+        "name_ru": "Навбахор",
+        "name_uz": "Navbaxor",
+        "name_en": "Navbaxor"
+      },
+      {
+        "code": 1722223,
+        "location_code": 1722,
+        "name_ru": "Шерабад",
+        "name_uz": "Sherobod",
+        "name_en": "Sherabad"
+      },
+      {
+        "code": 1733220,
+        "location_code": 1733,
+        "name_ru": "Хазарасп",
+        "name_uz": "Xazarasp",
+        "name_en": "Xazarasp"
+      },
+      {
+        "code": 1712211,
+        "location_code": 1712,
+        "name_ru": "Конимех",
+        "name_uz": "Konimex",
+        "name_en": "Konimex"
+      },
+      {
+        "code": 990002001,
+        "location_code": 9900,
+        "name_ru": "Актобе",
+        "name_uz": "Aktobe",
+        "name_en": "Aktobe"
+      },
+      {
+        "code": 1718203816,
+        "location_code": 1712,
+        "name_ru": "Зарафшан",
+        "name_uz": "Zarafshon",
+        "name_en": "Zarafshan"
+      },
+      {
+        "code": 1708,
+        "location_code": 1708,
+        "name_ru": "Жиззах",
+        "name_uz": "Jizzax",
+        "name_en": "Jizzakh"
+      },
+      {
+        "code": 1718218554,
+        "location_code": 1718,
+        "name_ru": "Мирбазар",
+        "name_uz": "Mirbozor",
+        "name_en": "Mirbazar"
+      },
+      {
+        "code": 1733208,
+        "location_code": 1733,
+        "name_ru": "Гурлан",
+        "name_uz": "Gurlan",
+        "name_en": "Gurlan"
+      },
+      {
+        "code": 990001013,
+        "location_code": 9900,
+        "name_ru": "Уфа",
+        "name_uz": "Ufa",
+        "name_en": "Ufa"
+      },
+      {
+        "code": 990003099,
+        "location_code": 9900,
+        "name_ru": "Худжанд",
+        "name_uz": "Xo`djand",
+        "name_en": "Khujand"
+      },
+      {
+        "code": 990001007,
+        "location_code": 9900,
+        "name_ru": "Оренбург",
+        "name_uz": "Orenburg",
+        "name_en": "Orenburg"
+      },
+      {
+        "code": 1735207501,
+        "location_code": 1735,
+        "name_ru": "Беруни",
+        "name_uz": "Beruniy",
+        "name_en": "Beruniy"
+      },
+      {
+        "code": 1714212855,
+        "location_code": 1722,
+        "name_ru": "Кумкурган",
+        "name_uz": "Qumqorg'on",
+        "name_en": "Qumqorg'on"
+      },
+      {
+        "code": 990002009,
+        "location_code": 9900,
+        "name_ru": "Кызылорда",
+        "name_uz": "Qizilo'rda",
+        "name_en": "Kyzylorda"
+      },
+      {
+        "code": 1718,
+        "location_code": 1718,
+        "name_ru": "Самарканд",
+        "name_uz": "Samarqand",
+        "name_en": "Samarkand"
+      },
+      {
+        "code": 990002002,
+        "location_code": 9900,
+        "name_ru": "Алматы",
+        "name_uz": "Olma-ota",
+        "name_en": "Almati"
+      },
+      {
+        "code": 990001005,
+        "location_code": 9900,
+        "name_ru": "Новосибирск",
+        "name_uz": "Novosibirsk",
+        "name_en": "Novosibirsk"
+      },
+      {
+        "code": 990001009,
+        "location_code": 9900,
+        "name_ru": "Пермь",
+        "name_uz": "Perm",
+        "name_en": "Perm"
+      },
+      {
+        "code": 1722401,
+        "location_code": 1722,
+        "name_ru": "Термез",
+        "name_uz": "Termiz",
+        "name_en": "Termez"
+      },
+      {
+        "code": 990001003,
+        "location_code": 9900,
+        "name_ru": "Москва",
+        "name_uz": "Moskva",
+        "name_en": "Moskva"
+      },
+      {
+        "code": 1712216501,
+        "location_code": 1712,
+        "name_ru": "Кызылтепа",
+        "name_uz": "Qiziltepa",
+        "name_en": "Kyzyltepa"
+      },
+      {
+        "code": 1710212,
+        "location_code": 1722,
+        "name_ru": "Дехканабад",
+        "name_uz": "Dexqonobod",
+        "name_en": "Dehkanabad"
+      },
+      {
+        "code": 1712,
+        "location_code": 1712,
+        "name_ru": "Навоий",
+        "name_uz": "Navoiy",
+        "name_en": "Nawai"
+      },
+      {
+        "code": 1722221,
+        "location_code": 1722,
+        "name_ru": "Узун",
+        "name_uz": "Uzun",
+        "name_en": "Uzun"
+      },
+      {
+        "code": 1722210,
+        "location_code": 1722,
+        "name_ru": "Денау",
+        "name_uz": "Denov",
+        "name_en": "Denov"
+      },
+      {
+        "code": 1706,
+        "location_code": 1706,
+        "name_ru": "Бухара",
+        "name_uz": "Buxoro",
+        "name_en": "Bukhara"
+      },
+      {
+        "code": 1706215,
+        "location_code": 1706,
+        "name_ru": "Гиждуван",
+        "name_uz": "G'ijduvon",
+        "name_en": "Gijduvan"
+      },
+      {
+        "code": 1710224,
+        "location_code": 1710,
+        "name_ru": "Карши",
+        "name_uz": "Qarshi",
+        "name_en": "Karshi"
+      },
+      {
+        "code": 1710245,
+        "location_code": 1710,
+        "name_ru": "Шахрисабз",
+        "name_uz": "Shaxrisabz",
+        "name_en": "Shaxrisabz"
+      },
+      {
+        "code": 1706204501,
+        "location_code": 1706,
+        "name_ru": "Олот",
+        "name_uz": "Olot",
+        "name_en": "Olot"
+      },
+      {
+        "code": 1733226,
+        "location_code": 1733,
+        "name_ru": "Хива",
+        "name_uz": "Xiva",
+        "name_en": "Khiva"
+      },
+      {
+        "code": 1718224502,
+        "location_code": 1718,
+        "name_ru": "Челак",
+        "name_uz": "Chelak",
+        "name_en": "Chelak"
+      },
+      {
+        "code": 1710207,
+        "location_code": 1710,
+        "name_ru": "Гузар",
+        "name_uz": "Guzor",
+        "name_en": "Guzor"
+      },
+      {
+        "code": 1710242501,
+        "location_code": 1710,
+        "name_ru": "Чиракчи",
+        "name_uz": "Chiroqchi",
+        "name_en": "Chirakchi"
+      },
+      {
+        "code": 1718216551,
+        "location_code": 1718,
+        "name_ru": "Кушрабад",
+        "name_uz": "Qoshrabod",
+        "name_en": "Kushrabod"
+      },
+      {
+        "code": 1718235817,
+        "location_code": 1718,
+        "name_ru": "Джам",
+        "name_uz": "Jom",
+        "name_en": "Jom"
+      },
+      {
+        "code": null,
+        "location_code": 1710,
+        "name_ru": "Сарикуль",
+        "name_uz": "Sarikul",
+        "name_en": "Sarikul"
+      },
+      {
+        "code": 1710240551,
+        "location_code": 1710,
+        "name_ru": "Еттитом",
+        "name_uz": "Ettitom",
+        "name_en": "Ettitom"
+      },
+      {
+        "code": 1718216810,
+        "location_code": 1718,
+        "name_ru": "Джуш",
+        "name_uz": "Jo'sh",
+        "name_en": "Josh"
+      },
+      {
+        "code": 1733212827,
+        "location_code": 1722,
+        "name_ru": "Дарбанд",
+        "name_uz": "Darband",
+        "name_en": "Darband"
+      },
+      {
+        "code": 1718212555,
+        "location_code": 1718,
+        "name_ru": "Метан",
+        "name_uz": "Metan",
+        "name_en": "Metan"
+      },
+      {
+        "code": 1718216814,
+        "location_code": 1718,
+        "name_ru": "Зармитан",
+        "name_uz": "Zarmitan",
+        "name_en": "Zarmitan"
+      },
+      {
+        "code": 1710250501,
+        "location_code": 1710,
+        "name_ru": "Яккабаг",
+        "name_uz": "Yakkabog'",
+        "name_en": "Yakkabag"
+      },
+      {
+        "code": 1710220866,
+        "location_code": 1710,
+        "name_ru": "Чим",
+        "name_uz": "Chim",
+        "name_en": "Chim"
+      },
+      {
+        "code": 1706230,
+        "location_code": 1706,
+        "name_ru": "Каракуль",
+        "name_uz": "Qorako'l",
+        "name_en": "Karakul"
+      }
+    ],
+    "apis": [
+      {
+        "name": "UZAVTOVOKZAL",
+        "id": 0,
+        "url": "https://wapi.avtoticket.uz"
+      },
+      {
+        "name": "ALLCOMFORT",
+        "id": 1,
+        "url": "https://wapi.congresshall.itoffer.uz"
+      },
+      {
+        "name": "UZAUTOTRANS",
+        "id": 3,
+        "url": "https://wapi.uzautotrans.itoffer.uz"
+      }
+    ]
+  },
+  "links": null,
+  "errors": null
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_location_disable">
+
+    <target
+        android:name="blink_map"
+        android:animation="@animator/blink_location" />
+
+    <target
+        android:name="blink_map_circle"
+        android:animation="@animator/blink_location" />
+
+</animated-vector>

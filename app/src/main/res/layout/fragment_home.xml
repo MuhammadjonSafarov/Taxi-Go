@@ -33,9 +33,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="0dp"
+        android:layout_marginHorizontal="48dp"
+        android:maxLines="2"
         android:fontFamily="@font/circle_rounded_regulary"
         android:gravity="center"
-        android:text="aniqlanmoqda ..."
+        android:text="Aniqlanmoqda ..."
         android:textColor="@color/colorTextBlack"
         android:textSize="16dp"
         android:textStyle="bold"
@@ -43,21 +45,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addressTitle"
         app:reflectionColor="#fff" />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animation_view"
-        android:layout_width="280dp"
-        android:layout_height="280dp"
-        android:layout_marginBottom="84dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="false"
-        app:lottie_rawRes="@raw/pin"
-        app:lottie_repeatMode="reverse"
-        />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/fabLocation"
@@ -70,7 +57,7 @@
         android:elevation="0dp"
         android:focusable="true"
         android:padding="14dp"
-        android:src="@drawable/ic_my_location"
+        android:src="@drawable/ic_location_disable"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

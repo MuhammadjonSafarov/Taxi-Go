@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/llcNear"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:textColor="@color/colorTextGray"
     android:background="@drawable/shape_bottom_recycle"
+    app:fontFamily="@font/circle_rounded_regulary"
+    android:fontFamily="@font/circle_rounded_regulary"
     android:clickable="true"
     android:focusable="true"
     android:gravity="center"
@@ -11,4 +15,4 @@
     android:paddingTop="6dp"
     android:paddingEnd="10dp"
     android:paddingBottom="6dp"
-    android:text="Hech narsa topilmadi" />
+    android:text="@string/empty_list" />

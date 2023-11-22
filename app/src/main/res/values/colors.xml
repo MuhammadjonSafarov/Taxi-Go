@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#e2e4f0</color>
-    <color name="colorPrimaryDark">#242429</color>
+    <color name="colorPrimary">#1b79d5</color>
+    <color name="colorPrimaryDark">#1b79d5</color>
     <color name="colorAccentRipple">#420071FB</color>
     <color name="colorAccent">#0071fb</color>
     <color name="colorLogo">#242429</color>
-    <color name="colorMenuIconDefault">#9093a2</color>
+    <color name="colorMenuIconDefault">#535469</color>
     <color name="colorMenuIconSelect">#0073ff</color>
+    <color name="colorShapeParking">#0073FF</color>
+    <color name="colorItemMenu">#0073FF</color>
 
     <color name="colorAccentTransparent">#420071FB</color>
     <color name="colorBackground">#e2e4f0</color>
@@ -16,6 +18,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
     <color name="colorWhite">#FFFFFFFF</color>
+    <color name="logoAccess">#FFF20544</color>
     <color name="colorWhitishTransparent">#42FFFFFF</color>
     <color name="colorIcon">#81868a</color>
     <color name="colorButtonDisable">#cccfde</color>
@@ -23,7 +26,9 @@
 
     <!-- all text colors -->
     <color name="colorTextBlack">#222222</color>
+    <color name="colorTextWhite">#ffffff</color>
     <color name="colorTextGray">#9093a2</color>
+    <color name="colorTextBlue">#0073ff</color>
     <color name="colorTextGrayHolo">#d0d3e7</color>
     <color name="colorTextCancelButton">#9093a2</color>
     <color name="primary_icon">#535469</color>
@@ -58,12 +63,14 @@
     <color name="colorAmbientShadowColor">#0071fb</color>
     <color name="colorSpotShadowColor">#0071fb</color>
 
-    <color name="color_nav_item_background">#4500C2FF</color>
+    <color name="color_nav_item_background">#290073FF</color>
 
     <color name="switcher_on_color">#0071fb</color><!--#48ea8b-->
     <color name="switcher_off_color">#b7b8c6</color>
     <color name="colorRedTransparent">#42ff4651</color>
     <color name="switcher_icon_color">@android:color/white</color>
+    <color name="colorRoute">#00CA50</color>
+    <color name="colorGreen">#1EA152</color>
 
     <!--Text Input Layout-->
     <color name="colorInputBackground">#d7daeb</color>

@@ -27,8 +27,8 @@ open class SimpleSpinner : FrameLayout {
     )
 
     var itemSelectedListener: ItemSelectedListener? = null
-    val textColor: Int by lazy { ContextCompat.getColor(context, R.color.primary_icon) }
-    val selectedTextColor: Int = R.color.water_blue
+    val textColor: Int by lazy { ContextCompat.getColor(context, R.color.colorTextBlack) }
+    val selectedTextColor: Int = R.color.colorTextBlue
     val spinner = AppCompatSpinner(context, Spinner.MODE_DROPDOWN)
     val imageView = ImageView(context)
     val adapter: SimpleSpinnerAdapter
@@ -194,13 +194,13 @@ open class SimpleSpinner : FrameLayout {
                 itemBinding.tvDropDownItem.setTextColor(
                     ResourcesCompat.getColor(
                         context.resources,
-                        R.color.colorGray,
+                        R.color.primary_icon,
                         null
                     )
                 )
             } else {
                 if (position == selectedPosition) itemBinding.tvDropDownItem.setTextColor(
-                    ResourcesCompat.getColor(context.resources, R.color.water_blue, null)
+                    ResourcesCompat.getColor(context.resources, R.color.colorTextBlue, null)
                 )
                 else itemBinding.tvDropDownItem.setTextColor(textColor)
             }

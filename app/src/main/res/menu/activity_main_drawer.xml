@@ -8,12 +8,27 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_driver"
-            android:icon="@drawable/taxi_driver"
-            android:title="@string/menu_driver" />
+            android:icon="@drawable/ic_menu_driver"
+            android:title="@string/cars"
+            />
+        <item
+            android:id="@+id/nav_buses"
+            android:icon="@drawable/ic_bus_front_svgrepo_com"
+            android:title="@string/buses" />
         <item
             android:id="@+id/nav_address"
-            android:icon="@drawable/ic_address"
+            android:icon="@drawable/ic_menu_addresses"
             android:title="@string/menu_address" />
+        <item
+            android:id="@+id/nav_add_parking"
+            android:icon="@drawable/sharp_add_black_36"
+            android:title="Avtoturargoh qo'shish"
+            />
+        <item
+            android:id="@+id/nav_participants"
+            android:icon="@drawable/ic_menu_users"
+            android:title="@string/participants"
+            />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_settings"
