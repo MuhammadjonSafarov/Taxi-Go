@@ -1,2 +1,4 @@
-# Taxi-Go
-Viloyatlar va shaharlar aro qatnaydigan yo'llovchilar va haydovchilar uchun mo'ljallangan ilova
+Ushbu ilova viloyatlarga qatnaydigan taxilar hamda barcha turdagi taxilarga muljallangan ilova
+<p align="center">
+    <img src="https://gitlab.com/muhammadjondeveloper00/taxi_uz.git/master/assets/malibu.png">
+</p>
