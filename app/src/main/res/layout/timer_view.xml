@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fontFamily="@font/circle_rounded_regulary"
+    app:fontFamily="@font/circle_rounded_regulary"
+    android:gravity="center"
+    android:textColor="@color/colorTextBlack"
+    android:textSize="16dp"
+    tools:text="0"
+    />

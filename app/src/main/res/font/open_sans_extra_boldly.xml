@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="MissingDefaultResource">
+    <font
+        android:font="@font/open_sans_extra_bold"
+        android:fontStyle="normal"
+        android:fontWeight="800"
+        app:font="@font/open_sans_extra_bold"
+        app:fontStyle="normal"
+        app:fontWeight="800"
+        tools:ignore="UnusedAttribute" />
+    <font
+        android:font="@font/open_sans_extra_bold_italic"
+        android:fontStyle="italic"
+        android:fontWeight="800"
+        app:font="@font/open_sans_extra_bold_italic"
+        app:fontStyle="italic"
+        app:fontWeight="800"
+        tools:ignore="UnusedAttribute" />
+</font-family>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_bottom_shet" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/button_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="12dp"
+        android:layout_marginEnd="16dp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_popup_close"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/avatar_logo"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/open_sans_extra_boldly"
+        app:fontFamily="@font/open_sans_extra_boldly"
+        android:background="@drawable/circle_parking_shape"
+        android:textColor="@color/colorTextBlue"
+        android:text="P"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAddressName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/open_sans_extra_boldly"
+        android:text="Sobir Rahimov avtoturargohi"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="17dp"
+        app:fontFamily="@font/open_sans_extra_boldly"
+        app:layout_constraintEnd_toStartOf="@+id/button_close"
+        app:layout_constraintStart_toEndOf="@+id/avatar_logo"
+        app:layout_constraintTop_toTopOf="@+id/avatar_logo" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAddressDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp"
+        android:text="Toshkent shahar, Chilonzor tumani"
+        android:textColor="@color/colorTextGray"
+        android:textSize="14dp"
+        android:fontFamily="@font/circle_rounded_regulary"
+        app:fontFamily="@font/circle_rounded_regulary"
+        app:layout_constraintEnd_toStartOf="@+id/tvAddressDestination"
+        app:layout_constraintStart_toEndOf="@+id/avatar_logo"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddressName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAddressDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/circle_rounded_regular_bold"
+        app:fontFamily="@font/circle_rounded_regular_bold"
+        android:textColor="@color/colorTextBlack"
+        android:text="1.2 km"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="@+id/button_close"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddressName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_roads_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/circle_rounded_regulary"
+        android:gravity="center"
+        android:text="Yo\'nalishlar"
+        android:textColor="@color/colorTextGray"
+        app:fontFamily="@font/circle_rounded_regulary"
+        app:layout_constraintBottom_toBottomOf="@+id/button_navigator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_navigator" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/button_navigator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/shape_navigator_primary"
+        android:fontFamily="@font/circle_rounded_regulary"
+        android:gravity="center"
+        android:layout_marginEnd="16dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="4dp"
+        android:text="Yo'l ko'rsatuvchi"
+        android:textColor="@color/colorWhite"
+        app:fontFamily="@font/circle_rounded_regulary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddressDestination" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_roads"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:itemCount="4"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="24dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_road"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_navigator" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

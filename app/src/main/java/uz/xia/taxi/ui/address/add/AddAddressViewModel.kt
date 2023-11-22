@@ -12,31 +12,42 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import uz.xia.taxi.data.IPreference
+import uz.xia.taxi.data.local.dao.UserAddressDao
+import uz.xia.taxi.data.local.entity.UserAddress
+import uz.xia.taxi.data.remote.enumrition.AddressStatus
 import uz.xia.taxi.data.remote.model.nomination.NearEmpty
 import uz.xia.taxi.data.remote.model.nomination.NearLoading
 import uz.xia.taxi.data.remote.model.nomination.NearbyPlace
 import uz.xia.taxi.data.remote.model.nomination.PlaceMapper
 import uz.xia.taxi.network.NominationService
+import uz.xia.taxi.utils.SingleLiveEvent
 import java.util.Date
 import javax.inject.Inject
 
 interface IAddAddressViewModel {
     val livePlaceList: LiveData<List<NearbyPlace>>
+    val livePlace: LiveData<NearbyPlace>
+    val isAddressSaveLiveData:LiveData<Boolean>
     fun searchPlace(query: String, lang: String)
     fun loadNearbyPlaces()
 
     fun geoCode(latitude: Double, longitude: Double, lang: String)
-   // fun saveAddress(addressName: String)
+    fun saveAddress(position: Int, addressName: String, address: String)
 }
 
 private const val TAG = "AddAddressViewModel"
+
 @HiltViewModel
 class AddAddressViewModel @Inject constructor(
     private val nominationService: NominationService,
-    private val preference: IPreference
+    private val preference: IPreference,
+    private val userAddressDao: UserAddressDao
 ) : ViewModel(), IAddAddressViewModel {
     override val livePlaceList = MutableLiveData<List<NearbyPlace>>()
-   // private val addressDao = AppDatabase.getInstance(app).addressDao()
+    override val livePlace = MutableLiveData<NearbyPlace>()
+    override val isAddressSaveLiveData = SingleLiveEvent<Boolean>()
+
+    // private val addressDao = AppDatabase.getInstance(app).addressDao()
     private var lastSearchJob: Job? = null
     private val placeToNearMapper = PlaceMapper(preference.latitude, preference.longitude)
 
@@ -52,16 +63,13 @@ class AddAddressViewModel @Inject constructor(
                         place.longitude = place.lon.toDouble()
 
                         val lastIndexComma = place.title.lastIndexOf(',')
-                        place.title = if (lastIndexComma == -1)
-                            place.title
-                        else
-                            place.title.substring(0, lastIndexComma)
+                        place.title = if (lastIndexComma == -1) place.title
+                        else place.title.substring(0, lastIndexComma)
                         place.title = place.title.replace(Regex(", \\d{6,}"), "")
                         listNearbyPlace.add(placeToNearMapper.transform(place))
                     }
                     livePlaceList.postValue(listNearbyPlace)
-                } else
-                    livePlaceList.postValue(listOf(NearEmpty()))
+                } else livePlaceList.postValue(listOf(NearEmpty()))
             } catch (e: Exception) {
                 Timber.d(e)
                 livePlaceList.postValue(listOf(NearEmpty()))
@@ -73,7 +81,7 @@ class AddAddressViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 livePlaceList.postValue(listOf(NearLoading()))
-                delay(500)
+                delay(100)
                 val response = nominationService.searchPlaces("$query,uzbekistan", lang)
                 if (response.isNotEmpty()) {
                     val listNearbyPlace = ArrayList<NearbyPlace>()
@@ -84,8 +92,7 @@ class AddAddressViewModel @Inject constructor(
                         val lastIndexComma = place.title.lastIndexOf(',')
                         place.title =
                             if (lastIndexComma == -1) place.title else place.title.substring(
-                                0,
-                                lastIndexComma
+                                0, lastIndexComma
                             )
                         place.title = place.title.replace(Regex(", \\d{6,}"), "")
 
@@ -109,8 +116,7 @@ class AddAddressViewModel @Inject constructor(
                     }
                     listNearbyPlace.sortBy { it.distance }
                     livePlaceList.postValue(listNearbyPlace)
-                } else
-                    livePlaceList.postValue(listOf(NearEmpty()))
+                } else livePlaceList.postValue(listOf(NearEmpty()))
             } catch (e: Exception) {
                 Timber.d(e)
                 livePlaceList.postValue(listOf(NearEmpty()))
@@ -122,7 +128,9 @@ class AddAddressViewModel @Inject constructor(
         lastSearchJob?.cancel()
         lastSearchJob = viewModelScope.launch(Dispatchers.IO) {
             try {
-                livePlaceList.postValue(listOf(NearLoading()))
+                //livePlaceList.postValue(listOf(NearLoading()))
+                preference.latitude = latitude
+                preference.longitude = longitude
                 val response = nominationService.loadAddress(latitude, longitude, lang)
                 var title = response?.displayName ?: "Empty place name"
                 val lastIndexComma = title.lastIndexOf(',')
@@ -133,42 +141,41 @@ class AddAddressViewModel @Inject constructor(
                 Location.distanceBetween(
                     preference.latitude,
                     preference.longitude,
-                    latitude,
-                    longitude,
-                    distance
+                    latitude, longitude, distance
                 )
-                livePlaceList.postValue(
-                    listOf(
-                        NearbyPlace(
-                            Date().time,
-                            title,
-                            title,
-                            distance[0],
-                            latitude,
-                            longitude
-                        )
+                livePlace.postValue(
+                    NearbyPlace(
+                        Date().time, title, title, distance[0], latitude, longitude
                     )
                 )
             } catch (e: Exception) {
                 Timber.d(e)
-                livePlaceList.postValue(listOf(NearEmpty()))
+                //livePlaceList.postValue(listOf(NearEmpty()))
             }
         }
     }
 
-/*    override fun saveAddress(addressName: String) {
+    override fun saveAddress(position: Int, addressName: String, address: String) {
         viewModelScope.launch {
+            val type = when (position) {
+                0 -> AddressStatus.HOME
+                1 -> AddressStatus.WORK
+                else -> AddressStatus.OTHER
+            }
             val time = Date().time
             val userAddress = UserAddress(
                 name = addressName,
-                41.287235,
-                69.218949,
-                time,
-                AddressType.WORK
+                description = address,
+                latitude = preference.latitude,
+                longitude = preference.longitude,
+                createAt = time,
+                updateAt = time,
+                type = type
             )
-            addressDao.insertAddress(userAddress)
+            userAddressDao.insert(userAddress)
+            isAddressSaveLiveData.postValue(true)
         }
-    }*/
+    }
 
 
 }

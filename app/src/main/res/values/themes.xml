@@ -43,6 +43,30 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="CustomDialog" parent="@style/Theme.AppCompat.Dialog.Alert">
+        <item name="backgroundColor">@color/colorWhite</item>
+        <item name="android:colorBackground">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textColorPrimary">@color/colorBlack</item>
+        <item name="colorControlHighlight">@color/colorAccentTransparent</item>
+        <item name="colorControlActivated">@color/colorAccentTransparent</item>
+        <item name="colorControlNormal">@color/colorAccentTransparent</item>
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/switcher_off_color</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
     <style name="MyFloatingActionButton" parent="@style/Widget.MaterialComponents.FloatingActionButton">
         <item name="materialThemeOverlay">@style/MyFabOverlay</item>
         <item name="tint">@color/colorWhite</item>
@@ -52,6 +76,7 @@
         <item name="boxStrokeColor">@color/text_input_layout_stroke_color</item>
         <item name="boxStrokeErrorColor">@color/colorInputStrokeError</item>
         <item name="android:textColorHint">@color/colorTextGray</item>
+        <item name="errorIconDrawable">@null</item>
         <item name="hintTextColor">@color/colorTextGray</item>
         <item name="boxCornerRadiusBottomEnd">8dp</item>
         <item name="boxCornerRadiusBottomStart">8dp</item>
@@ -65,6 +90,24 @@
         <item name="endIconTint">@color/colorInputEndIcon</item>
     </style>
 
+    <style name="Widget.TextInputLayout.Phone" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextAppearance">@style/TextAppearance.App.Caption</item>
+        <item name="boxStrokeColor">@color/phone_text_input_layout_stroke</item>
+        <item name="boxStrokeErrorColor">@color/colorInputStrokeError</item>
+        <item name="android:textColorHint">@color/colorTextGray</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="hintTextColor">@color/colorTextGray</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="boxStrokeWidth">1dp</item><!--text_input_box_width-->
+        <item name="android:padding">1dp</item>
+        <item name="boxBackgroundColor">@color/colorWhite</item>
+        <item name="android:theme">@style/exampleCursor</item>
+        <item name="endIconTint">@color/colorInputEndIcon</item>
+    </style>
     <style name="TextAppearance.App.Caption" parent="TextAppearance.AppCompat.Caption">
         <item name="fontFamily">@font/circle_rounded_regulary</item>
         <item name="android:fontFamily">@font/circle_rounded_regulary</item>
@@ -101,6 +144,7 @@
 
     <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
     </style>
 
     <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
@@ -130,8 +174,29 @@
     <style name="AppSearchView" parent="Widget.AppCompat.SearchView">
         <item name="android:editTextColor">@color/colorTextBlack</item>
         <item name="android:textColor">@color/colorTextBlack</item>
-        <item name="android:textColorHint">@color/colorTextGrayHolo</item>
+        <item name="android:textColorHint">@color/colorTextGray</item>
         <item name="android:textSize">16dp</item>
-        <item name="android:fontFamily">@font/circle_rounded_regulary</item>
+        <item name="android:textStyle">normal</item>
+        <item name="font">@font/circle_rounded_regular_bold</item>
+        <item name="android:font" tools:ignore="NewApi">@font/circle_rounded_regular_bold</item>
+    </style>
+    <style name="FullScreenDialogTransparent" parent="Theme.MaterialComponents.Dialog.Alert">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:alwaysDrawnWithCache">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowAnimationStyle">@style/DialogLeftRight</item>
+    </style>
+
+    <style name="DialogLeftRight" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/slide_left</item>
+        <item name="android:windowExitAnimation">@anim/slide_right</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
     </style>
 </resources>

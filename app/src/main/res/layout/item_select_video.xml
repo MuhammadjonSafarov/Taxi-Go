@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:outlineAmbientShadowColor="@color/colorAmbientShadowColor"
+    android:outlineSpotShadowColor="@color/colorSpotShadowColor"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="0dp"
+    app:cardMaxElevation="0dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="120dp" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginStart="8dp"
+            android:button="@drawable/toggle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="8dp"
+            android:textSize="12dp"
+            android:background="@drawable/shape_video_item_duration"
+            android:drawablePadding="4dp"
+            android:paddingVertical="6dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="8dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            app:drawableStartCompat="@drawable/ic_play_circle"
+            tools:text="00:31" />
+    </FrameLayout>
+</androidx.cardview.widget.CardView>

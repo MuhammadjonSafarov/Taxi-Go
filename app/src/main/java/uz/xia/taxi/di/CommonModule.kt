@@ -1,8 +1,13 @@
 package uz.xia.taxi.di
 
+import uz.xia.taxi.utils.LocaleHelper
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.room.Room
+/*
+import com.chuckerteam.chucker.api.ChuckerCollector
+import com.chuckerteam.chucker.api.ChuckerInterceptor
+*/
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import dagger.Module
@@ -13,8 +18,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import uz.xia.taxi.network.ApiService
-import uz.xia.taxi.network.NominationService
+import uz.xia.taxi.common.BASE_AVTOTICKET_URL
 import uz.xia.taxi.common.BASE_URL
 import uz.xia.taxi.common.DATA_BASE_NAME
 import uz.xia.taxi.common.NOMINATION_URL
@@ -22,8 +26,11 @@ import uz.xia.taxi.data.IPreference
 import uz.xia.taxi.data.PreferenceManagerImpl
 import uz.xia.taxi.data.local.AppDataBase
 import uz.xia.taxi.data.local.DatabaseMigrations.MIGRATION_1_2
+import uz.xia.taxi.data.local.DatabaseMigrations.MIGRATION_2_3
 import uz.xia.taxi.data.local.dao.UserAddressDao
-import uz.xia.taxi.data.local.entity.UserAddress
+import uz.xia.taxi.network.ApiService
+import uz.xia.taxi.network.AutoTicketApiService
+import uz.xia.taxi.network.NominationService
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -43,17 +50,21 @@ object CommonModule {
 
     @Provides
     fun provideNominationService(client: OkHttpClient): NominationService {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(NOMINATION_URL)
-            .client(client)
-            .addConverterFactory(MoshiConverterFactory.create())
-            .build()
+        val retrofit = Retrofit.Builder().baseUrl(NOMINATION_URL).client(client)
+            .addConverterFactory(MoshiConverterFactory.create()).build()
         return retrofit.create(NominationService::class.java)
     }
 
     @Provides
+    fun provideAvtoticketService(client: OkHttpClient): AutoTicketApiService {
+        val retrofit = Retrofit.Builder().baseUrl(BASE_AVTOTICKET_URL).client(client)
+            .addConverterFactory(MoshiConverterFactory.create()).build()
+        return retrofit.create(AutoTicketApiService::class.java)
+    }
+
+    @Provides
     fun provideOkHttpClient(@ApplicationContext context: Context): OkHttpClient {
-        val chuckedInterceptor = ChuckerInterceptor.Builder(context)
+         val chuckedInterceptor = ChuckerInterceptor.Builder(context)
             .collector(ChuckerCollector(context))
             .maxContentLength(250_000L)
             .redactHeaders(emptySet())
@@ -70,15 +81,19 @@ object CommonModule {
     @Provides
     @Singleton
     fun provideDataBase(@ApplicationContext context: Context): AppDataBase {
-        return Room.databaseBuilder(context,
-            AppDataBase::class.java, DATA_BASE_NAME)
-//            .createFromAsset(DATA_BASE_NAME)
+        return Room.databaseBuilder(
+            context, AppDataBase::class.java, DATA_BASE_NAME
+        ).createFromAsset(DATA_BASE_NAME)
             .addMigrations(MIGRATION_1_2)
+            .addMigrations(MIGRATION_2_3)
             .build()
     }
+    @Provides
+    @Singleton
+    fun provideLocaleHelper(preference: IPreference) = LocaleHelper(preference)
 
     @Provides
-    fun provideAddressDao(dataBase: AppDataBase):UserAddressDao{
+    fun provideAddressDao(dataBase: AppDataBase): UserAddressDao {
         return dataBase.userAddressDao()
     }
 
@@ -90,4 +105,5 @@ object CommonModule {
     @Provides
     fun providePreference(@ApplicationContext context: Context): SharedPreferences =
         androidx.preference.PreferenceManager.getDefaultSharedPreferences(context)
+
 }

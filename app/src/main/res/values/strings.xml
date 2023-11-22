@@ -1,20 +1,80 @@
 <resources>
-    <string name="app_name">Taxi Uz</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Safarov Muhammadjon</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
+    <string name="app_name" translatable="false">Taxi Go</string>
     <string name="menu_home">Asosiy</string>
     <string name="menu_driver">Haydovchi</string>
     <string name="menu_address">Manzillar</string>
     <string name="menu_settings">Sozlamalar</string>
+
     <string name="distance">%.2f км</string>
     <string name="distance_meter">%.2f м</string>
     <string name="empty_list">Ҳеч нарса топилмади!</string>
     <string name="empty_place_name">Bo\'sh joy nomi</string>
     <string name="select_one">Birini tanlang</string>
+    <string name="cancel">Bekor qilish</string>
+    <string name="next">Davom etish</string>
+    <string name="enter_address">Manzilingizni kiriting</string>
+    <string name="address">Manzil</string>
+    <string name="enter_address_name">Manzil nomini kiriting</string>
+    <string name="address_name">Manzil nomi</string>
+    <string name="address_type">Manzil turi</string>
+    <string name="is_empty">maydon bo\'sh</string>
+    <string name="you_currently_have_no_addresses">Hozirda sizda manzillar mavjud emas</string>
+    <string name="home">Uy</string>
+    <string name="workplace">Ishxona</string>
+    <string name="conform">Tasdiqlash</string>
+    <string name="yandex_navigator">Yandex Navigator</string>
+    <string name="google_maps">Google Maps</string>
+    <string name="only_use_this_map_app">Танловни эслаб қол</string>
+    <string name="choose_on_map_app">Навигаторни танланг:</string>
+    <string name="sum">so\'m</string>
+    <string name="no_internet_connection">Нет соединения с интернетом :(</string>
 
+    <string name="select_language">Тилни танлаш</string>
+    <string name="language_uz">O\'zbek tili</string>
+    <string name="language_uz_krill">Ўзбек тили</string>
+    <string name="language_ru">Rus tili</string>
+    <string name="language_en">Engilish</string>
+
+    <string name="buses">Avtobuslar</string>
+    <string name="cars">Mashinalar</string>
+    <string name="close">Yopish</string>
+
+    <string name="personal_info">Шахсий маълумотлар</string>
+    <string name="change_language">Тилни ўзгартириш</string>
+    <string name="theme_settings">Мавзу созламалари</string>
+    <string name="vebriation_control">Вибрацияни бошқариш</string>
+    <string name="security">Хафсизлик</string>
+    <string name="about">Илова ҳақида</string>
+    <string name="error_enable_gps_setting">GPS sozlamalriga ruxsat bering</string>
+    <string name="auto_number_not_fount">Avto number mos emas</string>
+    <string name="participants">Ishtirokchilar</string>
+
+    <string-array name="cars" translatable="false">
+        <item>Chevrolet Spark</item>
+        <item>Daewoo Nexia</item>
+        <item>Daewoo Nexia 2</item>
+        <item>Chevrolet Nexia 2</item>
+        <item>Ravon Nexia 3</item>
+        <item>Chevrolet Nexia 3</item>
+        <item>Daewoo Lacetti</item>
+        <item>Chevrolet Lacetti</item>
+        <item>Chevrolet Lacetti (Gentra)</item>
+        <item>Ravon Lacetti (Gentra)</item>
+        <item>Chevrolet Cobalt</item>
+        <item>Ravon Cobalt</item>
+        <item>Chevrolet Capteva</item>
+        <item>Chevrolet Malibu</item>
+        <item>Chevrolet Malibu 2</item>
+    </string-array>
+
+    <string-array name="colors">
+        <item>Oq</item>
+        <item>Qora</item>
+        <item>Qizil</item>
+        <item>Ko\'k</item>
+        <item>Mokri asfalt</item>
+        <item>Motiviy</item>
+        <item>Black Blue</item>
+        <item>Moviy</item>
+    </string-array>
 </resources>
