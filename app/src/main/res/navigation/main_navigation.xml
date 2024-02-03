@@ -7,103 +7,155 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="uz.xia.taxi.ui.home.HomeFragment"
+        android:name="uz.xia.taxigo.ui.home.HomeFragment"
         android:label=""
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_driver"
-        android:name="uz.xia.taxi.ui.driver.DriverFragment"
+        android:name="uz.xia.taxigo.ui.driver.auto.list.DriverCarsFragment"
         android:label="@string/menu_driver"
-        tools:layout="@layout/fragment_driver" />
+        tools:layout="@layout/fragment_driver_autos" />
 
     <fragment
         android:id="@+id/nav_address"
-        android:name="uz.xia.taxi.ui.address.AddressFragment"
+        android:name="uz.xia.taxigo.ui.address.AddressFragment"
         android:label="@string/menu_address"
         tools:layout="@layout/fragment_address" />
     <fragment
         android:id="@+id/nav_settings"
-        android:name="uz.xia.taxi.ui.settings.SettingsFragment"
+        android:name="uz.xia.taxigo.ui.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/nav_address_add"
-        android:name="uz.xia.taxi.ui.address.add.AddAddressFragment"
+        android:name="uz.xia.taxigo.ui.address.add.AddAddressFragment"
         android:label=""
         tools:layout="@layout/fragment_address_add" />
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="uz.xia.taxi.ui.profile.ProfileFragment"
+        android:name="uz.xia.taxigo.ui.profile.ProfileFragment"
         android:label=""
         tools:layout="@layout/fragment_profile" />
 
     <dialog
         android:id="@+id/nav_add_address_popup"
-        android:name="uz.xia.taxi.ui.address.add.AddAddressDialog"
+        android:name="uz.xia.taxigo.ui.address.add.AddAddressDialog"
         android:label=""
         tools:layout="@layout/dialog_address_add" />
     <dialog
         android:id="@+id/nav_post_details"
-        android:name="uz.xia.taxi.ui.home.roads.ParkDialogFragment"
+        android:name="uz.xia.taxigo.ui.home.roads.ParkDialogFragment"
         android:label=""
         tools:layout="@layout/dialog_post_detail" />
     <fragment
         android:id="@+id/roadFragment"
-        android:name="uz.xia.taxi.ui.home.roads.RoadFragment"
+        android:name="uz.xia.taxigo.ui.home.roads.RoadFragment"
         android:label="RoadFragment"
         tools:layout="@layout/fragment_road" />
     <fragment
         android:id="@+id/nav_buses"
-        android:name="uz.xia.taxi.ui.bus.BusesFragment"
+        android:name="uz.xia.taxigo.ui.bus.BusesFragment"
         android:label="@string/buses"
         tools:layout="@layout/fragment_buses" />
-    <fragment
-        android:id="@+id/nav_location"
-        android:name="uz.xia.taxi.ui.add.location.LocationFragment"
-        android:label=""
-        tools:layout="@layout/fragment_location" />
-    <fragment
-        android:id="@+id/nav_add_parking"
-        android:name="uz.xia.taxi.ui.add.parking.ParkingFragment"
-        android:label="Avtostoyanka qo\'shish"
-        tools:layout="@layout/fragment_parking" />
-    <fragment
-        android:id="@+id/nav_add_road"
-        android:name="uz.xia.taxi.ui.add.road.RoadAddFragment"
-        android:label="Yo\'l qo'shish"
-        tools:layout="@layout/fragment_add_road" />
-    <fragment
-        android:id="@+id/nav_add_station"
-        android:name="uz.xia.taxi.ui.add.station.StationFragment"
-        android:label="Bekat qo\'shish"
-        tools:layout="@layout/fragment_station" />
+
     <fragment
         android:id="@+id/nav_cars"
-        android:name="uz.xia.taxi.ui.home.cars.CarsFragment"
+        android:name="uz.xia.taxigo.ui.home.cars.CarsFragment"
         android:label="@string/cars"
         tools:layout="@layout/fragment_cars" />
     <fragment
         android:id="@+id/nav_car_add"
-        android:name="uz.xia.taxi.ui.driver.CarAddFragment"
+        android:name="uz.xia.taxigo.ui.driver.auto.add.DriverAutoAddFragment"
         android:label="Mashina qo\'shish"
-        tools:layout="@layout/fragment_driver_car_add" />
+        tools:layout="@layout/fragment_driver_auto_add" />
     <fragment
         android:id="@+id/nav_participants"
-        android:name="uz.xia.taxi.ui.participants.ParticipantsFragment"
+        android:name="uz.xia.taxigo.ui.participants.ParticipantsFragment"
         android:label="ParticipantsFragment"
-        tools:layout="@layout/fragment_participants"
-        />
+        tools:layout="@layout/fragment_participants" />
     <fragment
         android:id="@+id/nav_message"
-        android:name="uz.xia.taxi.ui.participants.chat.ChatMessageFragment"
+        android:name="uz.xia.taxigo.ui.participants.chat.ChatMessageFragment"
         android:label="ChatMessageFragment"
-        tools:layout="@layout/fragment_chat_message"/>
+        tools:layout="@layout/fragment_chat_message" />
     <dialog
         android:id="@+id/nav_add_choose_file"
-        android:name="uz.xia.taxi.ui.participants.chat.photo.AddPhotoFragment"
+        android:name="uz.xia.taxigo.ui.participants.chat.tool.ChatToolFragment"
         android:label="AddPhotoFragment"
-        tools:layout="@layout/layout_announcement_add_photo"/>
+        tools:layout="@layout/layout_announcement_add_photo"
+        />
+
+    <!--add data -->
+    <fragment
+        android:id="@+id/parkingListFragment"
+        android:name="uz.xia.taxigo.ui.add_data.parking.list.ParkingListFragment"
+        android:label="Avtoturargohlar"
+        tools:layout="@layout/fragment_parkings" />
+    <fragment
+        android:id="@+id/nav_location"
+        android:name="uz.xia.taxigo.ui.add_data.location.LocationFragment"
+        android:label=""
+        tools:layout="@layout/fragment_location" />
+    <fragment
+        android:id="@+id/nav_add_parking"
+        android:name="uz.xia.taxigo.ui.add_data.parking.create.ParkingCreateFragment"
+        android:label="Avtostoyanka qo\'shish"
+        tools:layout="@layout/fragment_parking_add" />
+    <fragment
+        android:id="@+id/nav_add_road"
+        android:name="uz.xia.taxigo.ui.add_data.road.add.RoadAddFragment"
+        android:label="Yo\'l qo'shish"
+        tools:layout="@layout/fragment_road_add" />
+
+    <fragment
+        android:id="@+id/parkingEditFragment"
+        android:name="uz.xia.taxigo.ui.add_data.parking.edit.ParkingEditFragment"
+        android:label="Avtoturargoh haqida malumotlar"
+        tools:layout="@layout/fragment_parking_edit" />
+    <fragment
+        android:id="@+id/roadListFragment"
+        android:name="uz.xia.taxigo.ui.add_data.road.list.RoadListFragment"
+        android:label="Yo'nalsihlar"
+        tools:layout="@layout/fragment_roads" />
+    <fragment
+        android:id="@+id/roadEditFragment"
+        android:name="uz.xia.taxigo.ui.add_data.road.edit.RoadEditFragment"
+        android:label="Yo\'nalish haqida malumotlar"
+        tools:layout="@layout/fragment_road_edit" />
+    <fragment
+        android:id="@+id/stationListFragment"
+        android:name="uz.xia.taxigo.ui.add_data.station.list.StationListFragment"
+        android:label="Bekatlar"
+        tools:layout="@layout/fragment_stations" />
+    <fragment
+        android:id="@+id/nav_add_station"
+        android:name="uz.xia.taxigo.ui.add_data.station.add.StationAddFragment"
+        android:label="Bekat qo\'shish"
+        tools:layout="@layout/fragment_station_add" />
+    <fragment
+        android:id="@+id/stationMapFragment"
+        android:name="uz.xia.taxigo.ui.add_data.station.list.StationMapFragment"
+        android:label="StationMapFragment"
+        tools:layout="@layout/fragment_stations_map"
+        />
+    <fragment
+        android:id="@+id/nav_music"
+        android:name="uz.xia.taxigo.ui.music.MusicFragment"
+        android:label="MusicFragment"
+        tools:layout="@layout/fragment_music"/>
+    <fragment
+        android:id="@+id/stationJoinMapFragment"
+        android:name="uz.xia.taxigo.ui.add_data.station.list.StationJoinMapFragment"
+        android:label="StationJoinMapFragment"
+        tools:layout="@layout/fragment_stations_map"
+        />
+    <fragment
+        android:id="@+id/nav_driverAutoModel"
+        android:name="uz.xia.taxigo.ui.driver.auto.add.model_type.DriverAutoModelFragment"
+        android:label="DriverAutoModelFragment"
+        tools:layout="@layout/fragment_auto_model_selected"/>
+
 </navigation>

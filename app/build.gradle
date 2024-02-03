@@ -11,11 +11,11 @@ plugins {
 }
 
 android {
-    namespace 'uz.xia.taxi'
+    namespace 'uz.xia.taxigo'
     compileSdk 33
 
     defaultConfig {
-        applicationId "uz.xia.taxi"
+        applicationId "uz.xia.taxigo"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -38,7 +38,7 @@ android {
         variant.outputs.all {
             def flavor = variant.name
             def versionName = variant.versionName
-            outputFileName = "TaxiGo App ${versionName}.apk"
+            outputFileName = "TaxiGo App ${flavor}_${versionName}.apk"
         }
     }
     compileOptions {
@@ -57,16 +57,19 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
+   // implementation project(path: ':data_add')
     implementation project(path: ':osmdroid')
+    //implementation project(path: ':music_player')
 
     implementation "androidx.preference:preference-ktx:1.2.0"
 
@@ -82,6 +85,8 @@ dependencies {
     /* Glide */
     implementation 'com.github.bumptech.glide:glide:4.14.2'
     kapt 'com.github.bumptech.glide:compiler:4.14.2'
+
+    //implementation 'androidx.media3:media3-common:1.2.1'
 
     /* Interceptor */
     //implementation 'com.squareup.okhttp3:okhttp:4.7.2'
@@ -139,4 +144,15 @@ dependencies {
 
     //volley dependency
     implementation 'com.android.volley:volley:1.1.1'
+
+    implementation 'com.github.kirich1409:viewbindingpropertydelegate-full:1.5.8'
+
+
+    /* Audio Seekbar */
+    implementation  'com.github.massoudss:waveformSeekBar:5.0.2'
+    implementation 'com.github.lincollincol:amplituda:2.2.2'
+
+    implementation 'com.scottyab:rootbeer-lib:0.0.8'
+    implementation 'androidx.biometric:biometric:1.1.0'
+    // or newer version implementation 'com.github.lincollincol:amplituda:2.2.2' // or newer version
 }

@@ -58,8 +58,12 @@ public class Marker extends OverlayWithIW {
     protected float mIWAnchorU, mIWAnchorV;
     protected float mAlpha;
     protected boolean mDraggable, mIsDragged;
+
     protected boolean mFlat;
+    protected long markerId;
+
     protected OnMarkerClickListener mOnMarkerClickListener;
+    protected OnMarkerLongClickListener mOnMarkerLongClickListener;
     protected OnMarkerDragListener mOnMarkerDragListener;
 
     /*attributes for non-standard features:*/
@@ -104,6 +108,7 @@ public class Marker extends OverlayWithIW {
         mAnchorV = ANCHOR_CENTER;
         mIWAnchorU = ANCHOR_CENTER;
         mIWAnchorV = ANCHOR_TOP;
+        markerId = 0;
         mDraggable = false;
         mIsDragged = false;
         mPositionPixels = new Point();
@@ -111,6 +116,7 @@ public class Marker extends OverlayWithIW {
         mDragOffsetY = 0.0f;
         mFlat = false; //billboard
         mOnMarkerClickListener = null;
+        mOnMarkerLongClickListener = null;
         mOnMarkerDragListener = null;
         setDefaultIcon();
         setInfoWindow(mMapViewRepository.getDefaultMarkerInfoWindow());
@@ -256,6 +262,10 @@ public class Marker extends OverlayWithIW {
 
     public void setOnMarkerClickListener(OnMarkerClickListener listener) {
         mOnMarkerClickListener = listener;
+    }
+
+    public void setOnMarkerLongClickListener(OnMarkerLongClickListener listener) {
+        mOnMarkerLongClickListener = listener;
     }
 
     public void setOnMarkerDragListener(OnMarkerDragListener listener) {
@@ -427,7 +437,14 @@ public class Marker extends OverlayWithIW {
                 if (mOnMarkerDragListener != null)
                     mOnMarkerDragListener.onMarkerDragStart(this);
                 moveToEventPosition(event, mapView);
+            } else {
+                if (mOnMarkerLongClickListener == null) {
+                    return onMarkerClickDefault(this, mapView);
+                } else {
+                    return mOnMarkerLongClickListener.onMarkerLongClick(this, mapView);
+                }
             }
+
         }
         return touched;
     }
@@ -461,6 +478,9 @@ public class Marker extends OverlayWithIW {
 
     public interface OnMarkerClickListener {
         abstract boolean onMarkerClick(Marker marker, MapView mapView);
+    }
+    public interface OnMarkerLongClickListener {
+        abstract boolean onMarkerLongClick(Marker marker, MapView mapView);
     }
 
     public interface OnMarkerDragListener {
@@ -546,6 +566,14 @@ public class Marker extends OverlayWithIW {
      */
     public boolean isDisplayed() {
         return mDisplayed;
+    }
+
+    public long getMarkerId() {
+        return markerId;
+    }
+
+    public void setMarkerId(long markerId) {
+        this.markerId = markerId;
     }
 
     /**

@@ -32,6 +32,7 @@
     <color name="colorTextGrayHolo">#d0d3e7</color>
     <color name="colorTextCancelButton">#9093a2</color>
     <color name="primary_icon">#535469</color>
+    <color name="colorTextBlueHolo">#62B0EB</color>
 
     <color name="primary_object">#ffffff</color>
     <color name="primary_object_80">#ccffffff</color>
@@ -50,7 +51,7 @@
 
     <color name="secondaryTextColor">#a9aab6</color>
     <color name="secondary_button">#e2e4f0</color>
-    <color name="secondary_icon">#9395a5</color>
+    <color name="secondary_icon">#828a99</color>
     <color name="secondary_object">#d3d6e8</color>
     <color name="secondary_screen">#e2e4f0</color>
     <color name="secondary_stroke">#b7b8c6</color>
@@ -65,12 +66,13 @@
 
     <color name="color_nav_item_background">#290073FF</color>
 
-    <color name="switcher_on_color">#0071fb</color><!--#48ea8b-->
+    <color name="switcher_on_color">#0071fb</color>
     <color name="switcher_off_color">#b7b8c6</color>
     <color name="colorRedTransparent">#42ff4651</color>
     <color name="switcher_icon_color">@android:color/white</color>
-    <color name="colorRoute">#00CA50</color>
+    <color name="colorRoute">#0071fb</color>
     <color name="colorGreen">#1EA152</color>
+    <color name="color_message_sender">#effdde</color>
 
     <!--Text Input Layout-->
     <color name="colorInputBackground">#d7daeb</color>

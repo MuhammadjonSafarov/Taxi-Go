@@ -19,3 +19,5 @@ dependencyResolutionManagement {
 rootProject.name = "TaxiGo"
 include ':app'
 include ':osmdroid'
+//include ':data_add'
+//include ':music_player'

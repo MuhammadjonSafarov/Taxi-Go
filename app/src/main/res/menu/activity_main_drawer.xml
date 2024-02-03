@@ -20,7 +20,7 @@
             android:icon="@drawable/ic_menu_addresses"
             android:title="@string/menu_address" />
         <item
-            android:id="@+id/nav_add_parking"
+            android:id="@+id/parkingListFragment"
             android:icon="@drawable/sharp_add_black_36"
             android:title="Avtoturargoh qo'shish"
             />
@@ -28,6 +28,11 @@
             android:id="@+id/nav_participants"
             android:icon="@drawable/ic_menu_users"
             android:title="@string/participants"
+            />
+        <item
+            android:id="@+id/nav_music"
+            android:icon="@drawable/ic_menu_music"
+            android:title="Avto musiqa"
             />
         <item
             android:id="@+id/nav_settings"
