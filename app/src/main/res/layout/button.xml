@@ -21,14 +21,14 @@
         android:layout_weight="1"
         android:fontFamily="@font/circle_rounded_regulary"
         android:gravity="center"
-        android:padding="12dp"
+        android:padding="@dimen/margin_10"
         android:text="Bekor qilish"
         android:textColor="@color/colorTextCancelButton"
-        android:textSize="16dp"
+        android:textSize="15dp"
         app:fontFamily="@font/circle_rounded_regulary"
         />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <TextView
         android:id="@+id/button_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,10 +36,10 @@
         android:background="@drawable/shape_button_primary"
         android:fontFamily="@font/circle_rounded_regulary"
         android:gravity="center"
-        android:padding="12dp"
+        android:padding="@dimen/margin_10"
         android:text="Davom etish"
         android:textColor="@color/white"
-        android:textSize="16dp"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:fontFamily="@font/circle_rounded_regulary" />
 </androidx.appcompat.widget.LinearLayoutCompat>

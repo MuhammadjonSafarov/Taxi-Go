@@ -6,18 +6,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorBackground">
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/et_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/shape_bottom_recycle"
+        android:elevation="0dp"
+        android:theme="@style/AppSearchView"
+        app:closeIcon="@drawable/ic_circle_close"
+        app:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryBackground="@color/white"
+        app:queryHint="Yo\'nalishingizni kiriting"
+        app:searchHintIcon="@drawable/ic_baseline_search"
+        app:searchIcon="@drawable/ic_baseline_search" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_schedule"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="64dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="16dp"
         tools:listitem="@layout/item_bus_schedule"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/et_address" />
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_message"
         android:layout_width="wrap_content"

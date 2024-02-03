@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="uz.xia.taxi.ui.auth.WelcomeFragment"
+        android:name="uz.xia.taxigo.ui.auth.WelcomeFragment"
         android:label="WelcomeFragment"
         tools:layout="@layout/fragment_welcome" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="uz.xia.taxi.ui.auth.LoginFragment"
+        android:name="uz.xia.taxigo.ui.auth.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/registerFragment"
-        android:name="uz.xia.taxi.ui.auth.RegisterFragment"
+        android:name="uz.xia.taxigo.ui.auth.RegisterFragment"
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register" />
     <fragment
         android:id="@+id/smsVerificationFragment"
-        android:name="uz.xia.taxi.ui.auth.verification.SmsVerificationFragment"
+        android:name="uz.xia.taxigo.ui.auth.verification.SmsVerificationFragment"
         android:label="SmsVerificationFragment"
         tools:layout="@layout/fragment_sms_verification" />
 </navigation>

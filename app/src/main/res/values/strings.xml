@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Taxi Go</string>
+    <string name="app_name">Taxi Go</string>
     <string name="menu_home">Asosiy</string>
     <string name="menu_driver">Haydovchi</string>
     <string name="menu_address">Manzillar</string>
@@ -47,25 +48,11 @@
     <string name="about">Илова ҳақида</string>
     <string name="error_enable_gps_setting">GPS sozlamalriga ruxsat bering</string>
     <string name="auto_number_not_fount">Avto number mos emas</string>
+    <string name="auto_date_not_fount">Sana mos emas</string>
     <string name="participants">Ishtirokchilar</string>
-
-    <string-array name="cars" translatable="false">
-        <item>Chevrolet Spark</item>
-        <item>Daewoo Nexia</item>
-        <item>Daewoo Nexia 2</item>
-        <item>Chevrolet Nexia 2</item>
-        <item>Ravon Nexia 3</item>
-        <item>Chevrolet Nexia 3</item>
-        <item>Daewoo Lacetti</item>
-        <item>Chevrolet Lacetti</item>
-        <item>Chevrolet Lacetti (Gentra)</item>
-        <item>Ravon Lacetti (Gentra)</item>
-        <item>Chevrolet Cobalt</item>
-        <item>Ravon Cobalt</item>
-        <item>Chevrolet Capteva</item>
-        <item>Chevrolet Malibu</item>
-        <item>Chevrolet Malibu 2</item>
-    </string-array>
+    <string name="save">Saqlash</string>
+    <string name="app_version">Ilova naqli v%s</string>
+    <string name="car_tools_text">Ravon Lacetti (Gentra) . <b>Биринчи - позиция</b>  <b>(Механика)</b> </string>
 
     <string-array name="colors">
         <item>Oq</item>
