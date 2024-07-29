@@ -5,20 +5,18 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil.ItemCallback
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.overlay.Marker
-import org.osmdroid.views.overlay.infowindow.MarkerInfoWindow
 import uz.xia.taxigo.R
 import uz.xia.taxigo.data.remote.enumrition.ChatMessageType
 import uz.xia.taxigo.data.remote.model.chat.ChatMessageData
 import uz.xia.taxigo.data.remote.model.chat.EmptyMessagesData
 import uz.xia.taxigo.data.remote.model.chat.GroupMessagesData
-import uz.xia.taxigo.databinding.ItemAddressGroupDateBinding
 import uz.xia.taxigo.databinding.ItemChatGroupDateBinding
 import uz.xia.taxigo.databinding.ItemChatLocationLeftBinding
 import uz.xia.taxigo.databinding.ItemChatLocationRightBinding
@@ -36,7 +34,8 @@ private const val LOCATION_TYPE_LEFT = 3
 private const val EMPTY_TYPE = 4
 private const val GROUP_TYPE = 5
 
-class ChatMessageAdapter(private val currentUserId: Long) :
+class ChatMessageAdapter(private val currentUserId: Long,
+                         private val listener:IMessageListener) :
     ListAdapter<ChatMessageData, RecyclerView.ViewHolder>(ItemChatDiffer) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -56,14 +55,17 @@ class ChatMessageAdapter(private val currentUserId: Long) :
                 val binding = ItemChatGroupDateBinding.inflate(layoutInflater, parent, false)
                 GroupVH(binding)
             }
-            LOCATION_TYPE_RIGHT ->{
+
+            LOCATION_TYPE_RIGHT -> {
                 val binding = ItemChatLocationRightBinding.inflate(layoutInflater, parent, false)
                 LocationRightVH(binding)
             }
-            LOCATION_TYPE_LEFT ->{
+
+            LOCATION_TYPE_LEFT -> {
                 val binding = ItemChatLocationLeftBinding.inflate(layoutInflater, parent, false)
                 LocationLeftVH(binding)
             }
+
             else -> {
                 val binding = ItemEmptyAddressBinding.inflate(layoutInflater, parent, false)
                 EmptyVH(binding)
@@ -79,12 +81,20 @@ class ChatMessageAdapter(private val currentUserId: Long) :
             holder.onBind(model)
         } else if (holder is GroupVH) {
             holder.onBind(model as GroupMessagesData)
-        } else if (holder is LocationLeftVH){
+        } else if (holder is LocationLeftVH) {
             holder.onBind(model)
-        } else if (holder is LocationRightVH){
+        } else if (holder is LocationRightVH) {
             holder.onBind(model)
         }
     }
+
+   /* fun setData(it: List<ChatMessageData>) {
+        mDataSet.clear()
+        mDataSet.addAll(it)
+        notifyDataSetChanged()
+    }*/
+
+    //override fun getItemCount(): Int = mDataSet.size
 
     override fun getItemViewType(position: Int): Int {
         val model = getItem(position)
@@ -95,8 +105,10 @@ class ChatMessageAdapter(private val currentUserId: Long) :
                 when (model.type) {
                     ChatMessageType.TEXT.name -> if (model.sender == currentUserId)
                         MSG_TYPE_RIGHT else MSG_TYPE_LEFT
+
                     ChatMessageType.LOCATION.name -> if (model.sender == currentUserId)
                         LOCATION_TYPE_RIGHT else LOCATION_TYPE_LEFT
+
                     else -> LOCATION_TYPE_RIGHT
                 }
 
@@ -125,9 +137,9 @@ class ChatMessageAdapter(private val currentUserId: Long) :
         }
     }
 
-    class LocationLeftVH(private val binding: ItemChatLocationLeftBinding)
-        :RecyclerView.ViewHolder(binding.root){
-        fun onBind(chat: ChatMessageData){
+   inner class LocationLeftVH(private val binding: ItemChatLocationLeftBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun onBind(chat: ChatMessageData) {
             binding.textMessageTime.text = "12:00"
             val context = binding.root.context
             val ctx: Context? = context?.applicationContext
@@ -148,13 +160,16 @@ class ChatMessageAdapter(private val currentUserId: Long) :
             val dr: Drawable = BitmapDrawable(context.resources, bitmap)
             marker.icon = dr
             map.overlays?.add(marker)
-           // mapController?.animateTo(startPoint)
+            // mapController?.animateTo(startPoint)
+            binding.root.setOnClickListener {
+                listener.locationClick(chat.longitude,chat.latitude)
+            }
         }
     }
 
-    class LocationRightVH(private val binding: ItemChatLocationRightBinding)
-        :RecyclerView.ViewHolder(binding.root){
-        fun onBind(chat: ChatMessageData){
+   inner class LocationRightVH(private val binding: ItemChatLocationRightBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun onBind(chat: ChatMessageData) {
             binding.textMessageTime.text = "12:00"
             val context = binding.root.context
             val ctx: Context? = context?.applicationContext
@@ -179,8 +194,12 @@ class ChatMessageAdapter(private val currentUserId: Long) :
             marker.icon = dr
             map.overlays?.add(marker)
             // mapController?.animateTo(startPoint)
+            binding.root.setOnClickListener {
+              listener.locationClick(chat.longitude,chat.latitude)
+            }
         }
     }
+
     class EmptyVH(binding: ItemEmptyAddressBinding) : RecyclerView.ViewHolder(binding.root)
 
     class CurrentMessageVH(binding: ItemChatMessageRightBinding) :
@@ -191,8 +210,10 @@ class ChatMessageAdapter(private val currentUserId: Long) :
         }
     }
 }
-
-private val ItemChatDiffer = object : ItemCallback<ChatMessageData>() {
+interface IMessageListener{
+    fun locationClick(longitude:Double,latitude:Double)
+}
+private val ItemChatDiffer = object : DiffUtil.ItemCallback<ChatMessageData>() {
     override fun areItemsTheSame(oldItem: ChatMessageData, newItem: ChatMessageData): Boolean {
         return oldItem == newItem
     }

@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.google.android.gms.auth.api.credentials.Credential
 import com.google.android.gms.auth.api.credentials.Credentials
@@ -19,18 +22,36 @@ import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import uz.xia.taxigo.R
 import uz.xia.taxigo.common.MASK_PHONE_NUMBER
+import uz.xia.taxigo.data.IPreference
+import uz.xia.taxigo.data.remote.model.login.UserLoginResponse
 import uz.xia.taxigo.databinding.FragmentLoginBinding
+import uz.xia.taxigo.ui.MainActivity
+import uz.xia.taxigo.utils.ProgressDialog
 import uz.xia.taxigo.utils.lazyFast
+import uz.xia.taxigo.utils.widget.IWatcher
+import uz.xia.taxigo.utils.widget.SimpleTextWatcher
+import uz.xia.taxigo.utils.widget.base.ResourceUI
+import javax.inject.Inject
+
 private val CREDENTIAL_PICKER_REQUEST = 1  // Set to an unused request code
 private const val TAG = "LoginFragment"
 
 @AndroidEntryPoint
-class LoginFragment:Fragment() {
+class LoginFragment:Fragment(), IWatcher {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
+    private val viewModel:LoginViewModel by viewModels()
+    @Inject
+    lateinit var preferences:IPreference
+
+    private val progressBar: ProgressDialog by lazyFast { ProgressDialog() }
+
     private val navController by lazyFast {
         Navigation.findNavController(requireActivity(),
-            R.id.nav_host_fragment_auth) }
+            R.id.nav_host_fragment_auth)
+    }
+
+    private var phoneNumber:String = ""
     private val maskedListener = object : MaskedTextChangedListener.ValueListener {
         override fun onTextChanged(
             maskFilled: Boolean,
@@ -38,10 +59,29 @@ class LoginFragment:Fragment() {
             formattedValue: String
         ) {
             binding.buttonConform.isEnabled = maskFilled
-            //phoneNumber=extractedValue
+            phoneNumber=extractedValue
         }
 
     }
+
+    private val loginObserver = Observer<ResourceUI<UserLoginResponse>?>{
+        when (it) {
+            is ResourceUI.Error -> progressBar.dismiss()
+            ResourceUI.Loading -> progressBar.show(childFragmentManager,"dialog_progress")
+            is ResourceUI.Resource -> {
+                progressBar.dismiss()
+                preferences.userId = it.data?.user?.id?:0
+                preferences.userName = it.data?.username?:""
+                preferences.userRole = it.data?.user?.role?:"USER"
+                preferences.accessToken = "Bearer ${it.data?.token?:""}"
+                Intent(requireContext(), MainActivity::class.java).apply {
+                    startActivity(this)
+                }
+            }
+            else -> progressBar.dismiss()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -55,6 +95,24 @@ class LoginFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpViews()
+        setUpObserver()
+    }
+
+    private fun setUpObserver() {
+        viewModel.liveData.observe(viewLifecycleOwner){
+            when (it) {
+                is ResourceUI.Error -> {
+                    progressBar.dismiss()
+                    Toast.makeText(requireContext(), "${it.error}", Toast.LENGTH_SHORT).show()
+                }
+                ResourceUI.Loading -> progressBar.show(childFragmentManager, "progress_dialog")
+                is ResourceUI.Resource -> {
+
+                    progressBar.dismiss()
+                }
+                else -> progressBar.dismiss()
+            }
+        }
     }
 
     private fun setUpViews() {
@@ -65,11 +123,18 @@ class LoginFragment:Fragment() {
             MASK_PHONE_NUMBER, affineFormats,
             AffinityCalculationStrategy.PREFIX, maskedListener
         )
+        viewModel.liveData.observe(viewLifecycleOwner,loginObserver)
         binding.etPhone.hint = listener.placeholder()
+        binding.etPassword.addTextChangedListener(SimpleTextWatcher(this))
         binding.buttonConform.setOnClickListener {
-           // requestHint()
-            navController.navigate(R.id.smsVerificationFragment)
+            val password = binding.etPassword.text.toString()
+            phoneNumber = "998$phoneNumber"
+            viewModel.login(phoneNumber,password)
         }
+    }
+
+    override fun onTextChange(text: String) {
+
     }
 
     // Construct a request for phone numbers and show the picker

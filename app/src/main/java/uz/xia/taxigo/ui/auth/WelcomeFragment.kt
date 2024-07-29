@@ -13,7 +13,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import uz.xia.taxigo.R
 import uz.xia.taxigo.data.IPreference
 import uz.xia.taxigo.databinding.FragmentWelcomeBinding
-import uz.xia.taxigo.ui.MainActivity
 import uz.xia.taxigo.utils.lazyFast
 import javax.inject.Inject
 
@@ -23,7 +22,7 @@ class WelcomeFragment : Fragment(), Runnable {
     private val navController by lazyFast {
         Navigation.findNavController(
             requireActivity(),
-            R.id.nav_host_fragment_auth
+            R.id.nav_host_fragment_content_main
         )
     }
     private var _binding: FragmentWelcomeBinding? = null
@@ -49,11 +48,12 @@ class WelcomeFragment : Fragment(), Runnable {
     }
 
     override fun run() {
-        if (preference.accessToken.isEmpty()) navController.navigate(R.id.loginFragment)
-        else Intent(requireContext(), MainActivity::class.java).apply {
+        //if (preference.accessToken.isEmpty())
+            navController.navigate(R.id.nav_home)
+           /* Intent(requireContext(), MainActivity::class.java).apply {
             startActivity(this)
-        }
-    }
+
+        }*/ }
 
     override fun onDestroyView() {
         super.onDestroyView()

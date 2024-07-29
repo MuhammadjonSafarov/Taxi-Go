@@ -154,5 +154,7 @@ dependencies {
 
     implementation 'com.scottyab:rootbeer-lib:0.0.8'
     implementation 'androidx.biometric:biometric:1.1.0'
+
+    implementation "com.ncorti:slidetoact:0.11.0"
     // or newer version implementation 'com.github.lincollincol:amplituda:2.2.2' // or newer version
 }

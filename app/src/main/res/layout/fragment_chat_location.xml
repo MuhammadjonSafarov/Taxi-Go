@@ -17,24 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/materialToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorWhite"
-        android:elevation="1dp"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_back_arrow"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
-        app:title="Joylashuvni belgilash"
-        app:titleCentered="true"
-        app:titleTextAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"
-        app:titleTextColor="@color/colorBlack" />
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view"
         android:layout_width="wrap_content"
@@ -102,7 +84,7 @@
                 app:fontFamily="@font/circle_rounded_regular_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Tanlangan joylashuvni yuborish" />
+                android:text="Tanlangan joylashuvni yuborish" />
 
             <TextView
                 android:id="@+id/description"
@@ -117,7 +99,7 @@
                 app:fontFamily="@font/circle_rounded_regulary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name"
-                tools:text="45 Lutfiy ko'chasi,  Chilonzor tumani Toshkent" />
+                android:text="45 Lutfiy ko'chasi,  Chilonzor tumani Toshkent" />
 
         </LinearLayout>
     </LinearLayout>

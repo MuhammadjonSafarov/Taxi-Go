@@ -156,7 +156,7 @@ fun getZoomLevel(point1: GeoPoint, point2: GeoPoint): Double {
     return min(max(zoom, 0.0), ZOOM_MAX.toDouble()) +3
 }
 fun dateFormat():SimpleDateFormat{
-    return SimpleDateFormat("yyyy-MM-dd")
+    return SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
 }
 fun dateMonthDayFormat():SimpleDateFormat{
     return SimpleDateFormat("dd MMM")
@@ -173,7 +173,7 @@ fun isSomeDay(date1: Long, date2: Long): Boolean {
 
 fun isSomeDayInstant(date1: String?, date2: String?): Boolean {
     val target = Calendar.getInstance()
-    target.timeInMillis = dateFormat().parse(if (date1.isNullOrEmpty())"2000-01-01" else date1)?.time?:0
+    target.timeInMillis = dateFormat().parse(if (date1.isNullOrEmpty()) "2000-01-01" else date1)?.time?:0
     val y1 = target.get(Calendar.YEAR)
     val d1 = target.get(Calendar.DAY_OF_YEAR)
     target.timeInMillis = dateFormat().parse(if (date2.isNullOrEmpty())"2000-01-01" else date2)?.time?:0

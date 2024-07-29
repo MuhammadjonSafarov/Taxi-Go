@@ -18,4 +18,7 @@ interface RoadDao {
     @Query("SELECT * FROM road_data WHERE  NOT id IN(:itemsIds)")
     suspend fun getRoadsNotParking(itemsIds:List<Int>):List<RoadData>
 
+    @Query("SELECT * FROM road_data WHERE id=:roadId")
+    suspend fun getRoadById(roadId:Long):RoadData
+
 }

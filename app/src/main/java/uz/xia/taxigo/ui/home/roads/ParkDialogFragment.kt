@@ -18,12 +18,14 @@ import uz.xia.taxigo.utils.lazyFast
 class ParkDialogFragment : BottomSheetDialogFragment(), RoadsAdapter.IRoadListener {
 
     private var _binding: DialogPostDetailBinding? = null
-    private var itemCallback: MyDialogCloseListener?=null
+    private var itemCallback: MyDialogCloseListener? = null
     private val viewModel by viewModels<ParkDetailViewModel>()
     private val mAdapter by lazyFast { RoadsAdapter(this) }
-    fun setListener(callback: MyDialogCloseListener){
-        this.itemCallback=callback
+    private var parkingId :Long =0L
+    fun setListener(callback: MyDialogCloseListener) {
+        this.itemCallback = callback
     }
+
     private val binding get() = _binding!!
 
     override fun getTheme(): Int = R.style.CustomBottomSheetDialogTheme
@@ -37,7 +39,7 @@ class ParkDialogFragment : BottomSheetDialogFragment(), RoadsAdapter.IRoadListen
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val parkingId=arguments?.getLong("key_id")?:0
+        parkingId = arguments?.getLong("key_id") ?: 0
         viewModel.loadRoads(parkingId)
     }
 
@@ -48,8 +50,9 @@ class ParkDialogFragment : BottomSheetDialogFragment(), RoadsAdapter.IRoadListen
 
 
     }
+
     private fun setUpViews() {
-        binding.rvRoads.adapter=mAdapter
+        binding.rvRoads.adapter = mAdapter
         binding.buttonClose.setOnClickListener {
             dismiss()
         }
@@ -58,40 +61,40 @@ class ParkDialogFragment : BottomSheetDialogFragment(), RoadsAdapter.IRoadListen
             dismiss()
         }
     }
+
     private fun setUpObserver() {
-        viewModel.roadsLiveData.observe(viewLifecycleOwner){
+        viewModel.roadsLiveData.observe(viewLifecycleOwner) {
             mAdapter.submitList(it)
         }
-        viewModel.liveParkingData.observe(viewLifecycleOwner){
-            binding.tvAddressName.text="${it.parkingData.nameUzLt}"
-            binding.tvAddressDescription.text="${it.regionData.nameUzLt}, ${it.districtData.nameUzLt}"
+        viewModel.liveParkingData.observe(viewLifecycleOwner) {
+            binding.tvAddressName.text = "${it.parkingData.nameUzLt}"
+            binding.tvAddressDescription.text =
+                "${it.regionData.nameUzLt}, ${it.districtData.nameUzLt}"
         }
     }
 
-
+    override fun itemRoadClick(id: Long) {
+        itemCallback?.onRoadClickListener(parkingId,id)
+        dismiss()
+    }
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
         itemCallback?.handleDialogClose(dialog)
     }
 
-    interface MyDialogCloseListener{
-        fun onClickListener(latitude:Double,longitude:Double)
-        fun onRoadClickListener(id:Long)
-        fun handleDialogClose(dialog:DialogInterface)
+    interface MyDialogCloseListener {
+        fun onClickListener(latitude: Double, longitude: Double)
+        fun onRoadClickListener(parkingId:Long,id: Long)
+        fun handleDialogClose(dialog: DialogInterface)
     }
 
-    companion object{
-        fun newInstaince(id:Long):ParkDialogFragment{
-            val bundle= bundleOf(Pair("key_id",id))
-            val fragment=ParkDialogFragment()
-            fragment.arguments=bundle
+    companion object {
+        fun newInstaince(id: Long): ParkDialogFragment {
+            val bundle = bundleOf(Pair("key_id", id))
+            val fragment = ParkDialogFragment()
+            fragment.arguments = bundle
             return fragment
         }
-    }
-
-    override fun itemRoadClick(id: Long) {
-       itemCallback?.onRoadClickListener(id)
-       dismiss()
     }
 }

@@ -6,7 +6,9 @@ import uz.xia.taxigo.data.pref.LongPreference
 import uz.xia.taxigo.data.pref.StringPreference
 import uz.xia.taxigo.common.EMPTY_STRING
 import uz.xia.taxigo.data.pref.DoublePreference
- /* user authorization */
+import uz.xia.taxigo.data.remote.enumrition.UserRoleType
+
+/* user authorization */
 private const val USER_ACCESS_TOKEN = "USER_ACCESS_TOKEN"
 private const val USER_REFRESH_TOKEN = "USER_REFRESH_TOKEN"
 private const val USER_FCM_TOKEN = "USER_REFRESH_TOKEN"
@@ -52,8 +54,9 @@ class PreferenceManagerImpl(sharedPreference: SharedPreferences) : IPreference {
     override var userPassword: String by StringPreference(sharedPreference, USER_PASSWORD)
     override var userPicture: String by StringPreference(sharedPreference, USER_PICTURE)
     override var userFireUid: String by StringPreference(sharedPreference, USER_FIRE_UID)
-    override var userRole: String by StringPreference(sharedPreference, USER_ROLE)
-    override var userId: Long by LongPreference(sharedPreference,USER_ID,3L)
+    override var userRole: String by StringPreference(sharedPreference, USER_ROLE,UserRoleType.GUEST.name)
+    override var userId: Long by LongPreference(sharedPreference,USER_ID,1L)
+    override var mainCarId: Long by LongPreference(sharedPreference,"user_car_id",0L)
     override var locationTime: Long by LongPreference(sharedPreference, LOCATION_TIME)
     override var latitude: Double by DoublePreference(sharedPreference, LATITUDE,"41.308772")
     override var longitude: Double by DoublePreference(sharedPreference, LONGITUDE,"69.247162")
@@ -61,9 +64,10 @@ class PreferenceManagerImpl(sharedPreference: SharedPreferences) : IPreference {
     override var isSqliteData: Boolean by BooleanPreference(sharedPreference, KEY_SQLITE_DATA,true)
 
     override var userConnectionId: String by StringPreference(sharedPreference, USER_CONNECTION_ID)
-    override var userConnectionAutoId: String by StringPreference(sharedPreference,
-        USER_CONNECTION_AUTO_ID)
+    override var userConnectionAutoId: String by StringPreference(sharedPreference,USER_CONNECTION_AUTO_ID)
 
     override var isYandexMapRoute: Boolean by BooleanPreference(sharedPreference, KEY_YANDEX_MAP_ROUTING)
     override var isNotMoreChoosingMap: Boolean by BooleanPreference(sharedPreference,KEY_NOT_MORE_CHOOSING_MAP)
+
+    override var userCarData: String by StringPreference(sharedPreference,"key_car_data")
 }

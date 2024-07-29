@@ -53,7 +53,7 @@
         android:theme="@style/Theme.Dark"
         tools:targetApi="31">
         <activity
-            android:name=".ui.auth.AuthActivity"
+            android:name=".ui.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Dark.NoActionBar"
             android:windowSoftInputMode="adjustResize">
@@ -63,13 +63,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-         <activity
+        <!-- <activity
              android:name=".ui.MainActivity"
              android:exported="true"
              android:windowSoftInputMode="adjustResize"
              android:theme="@style/Theme.Dark.NoActionBar"
              >
-         </activity>
+         </activity>-->
         <service
             android:name=".services.MyFirebaseMessagingService"
             android:exported="false"

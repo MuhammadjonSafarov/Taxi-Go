@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_bottom_shet" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/button_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_popup_close" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/avatar_logo"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/circle_parking_shape"
+        android:fontFamily="@font/open_sans_extra_boldly"
+        android:gravity="center"
+        android:text="P"
+        android:textColor="@color/colorTextBlue"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        app:fontFamily="@font/open_sans_extra_boldly"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAddressName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/open_sans_extra_boldly"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="17dp"
+        app:fontFamily="@font/open_sans_extra_boldly"
+        app:layout_constraintEnd_toStartOf="@+id/button_close"
+        app:layout_constraintStart_toEndOf="@+id/avatar_logo"
+        app:layout_constraintTop_toTopOf="@+id/avatar_logo"
+        android:text="Sobir Rahimov avtoturargohi" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAddressDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/circle_rounded_regulary"
+        android:text="Toshkent shahar, Chilonzor tumani"
+        android:textColor="@color/colorTextGray"
+        android:textSize="14dp"
+        app:fontFamily="@font/circle_rounded_regulary"
+        app:layout_constraintStart_toEndOf="@+id/avatar_logo"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddressName" />
+
+    <LinearLayout
+        android:id="@+id/ll_auto_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/avatar_logo"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddressDescription">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_car_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/circle_rounded_regulary"
+            android:paddingEnd="8dp"
+            android:layout_weight="1"
+            android:paddingVertical="4dp"
+            android:text="Oq Chevrolet Malibu 2"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/circle_rounded_regulary"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_car_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_car_number"
+            android:fontFamily="@font/circle_rounded_regular_bold"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="3dp"
+            android:text="85 595 UAA"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="16dp"
+            app:fontFamily="@font/circle_rounded_regular_bold" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_roads_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:fontFamily="@font/circle_rounded_regulary"
+        android:text="Tafsilotlar"
+        android:textColor="@color/colorTextGray"
+        app:fontFamily="@font/circle_rounded_regulary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_auto_name"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_roads_label"
+        android:text="Toshkent-> Samarqand"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/circle_rounded_regular_bold"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="15dp"
+        android:layout_marginEnd="16dp"
+        app:fontFamily="@font/circle_rounded_regular_bold"
+        app:layout_constraintBottom_toBottomOf="@+id/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/name"
+        android:text="400 km" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextGray"
+        android:textSize="15dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/circle_rounded_regulary"
+        app:fontFamily="@font/circle_rounded_regulary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        android:text="Yo'nalish"
+        />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="0dp"
+        android:layout_height="0.7dp"
+        android:background="@color/colorTextGrayHolo"
+        android:layout_marginTop="6dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/circle_rounded_regular_bold"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16dp"
+        app:fontFamily="@font/circle_rounded_regular_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1"
+        android:text="Ayni vaqtda"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/destination2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/circle_rounded_regulary"
+        app:fontFamily="@font/circle_rounded_regulary"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="15dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/name2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/name2"
+        android:text="O'zgartirish" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/description2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextGray"
+        android:textSize="15dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/circle_rounded_regulary"
+        app:fontFamily="@font/circle_rounded_regulary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name2"
+        android:text="Safar turi"
+        />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="0dp"
+        android:layout_height="0.7dp"
+        android:background="@color/colorTextGrayHolo"
+        android:layout_marginTop="6dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description2"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line2"
+        android:text="Joylashuvni yo'lovchiga ko'rsatish"
+        />
+
+    <Switch
+        android:id="@+id/destination3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/name3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/name3"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/description3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextGray"
+        android:textSize="15dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/circle_rounded_regulary"
+        app:fontFamily="@font/circle_rounded_regulary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name3"
+        android:text="Yo’lovchi sizning joriy joylashuvingizni ko’rib turadi"
+        />
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="0dp"
+        android:layout_height="0.7dp"
+        android:background="@color/colorTextGrayHolo"
+        android:layout_marginTop="6dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description3"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/circle_rounded_regular_bold"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16dp"
+        app:fontFamily="@font/circle_rounded_regular_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line3"
+        android:text="Faqat naqt"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/destination4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/circle_rounded_regulary"
+        app:fontFamily="@font/circle_rounded_regulary"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="15dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/name4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/name4"
+        android:text="O'zgartirish" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/description4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextGray"
+        android:textSize="15dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/circle_rounded_regulary"
+        app:fontFamily="@font/circle_rounded_regulary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name4"
+        android:text="To'lov turi"
+        />
+
+    <View
+        android:id="@+id/line4"
+        android:layout_width="0dp"
+        android:layout_height="0.7dp"
+        android:background="@color/colorTextGrayHolo"
+        android:layout_marginTop="6dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description4"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/circle_rounded_regular_bold"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16dp"
+        app:fontFamily="@font/circle_rounded_regular_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line4"
+        android:text="Komfort"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/destination5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/circle_rounded_regulary"
+        app:fontFamily="@font/circle_rounded_regulary"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="15dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/name5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/name5"
+        android:text="O'zgartirish" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/description5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextGray"
+        android:textSize="15dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/circle_rounded_regulary"
+        app:fontFamily="@font/circle_rounded_regulary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name5"
+        android:text="Tarif turi"
+        />
+    <View
+        android:id="@+id/line5"
+        android:layout_width="0dp"
+        android:layout_height="0.7dp"
+        android:background="@color/colorTextGrayHolo"
+        android:layout_marginTop="6dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description5"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/circle_rounded_regulary"
+        android:text="Jihozlar"
+        android:layout_marginTop="14dp"
+        android:textColor="@color/colorTextGray"
+        app:fontFamily="@font/circle_rounded_regulary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line5"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin_large"
+        tools:listitem="@layout/item_driver_tools"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ll_buttons"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tools"
+        />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/button_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/circle_rounded_regulary"
+            android:gravity="center"
+            android:padding="@dimen/margin_10"
+            android:text="@string/cancel"
+            android:textColor="@color/colorTextCancelButton"
+            android:textSize="14dp"
+            app:fontFamily="@font/circle_rounded_regulary" />
+
+        <TextView
+            android:id="@+id/button_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_button_primary"
+            android:enabled="true"
+            android:fontFamily="@font/circle_rounded_regulary"
+            android:gravity="center"
+            android:padding="@dimen/margin_10"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/circle_rounded_regulary" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

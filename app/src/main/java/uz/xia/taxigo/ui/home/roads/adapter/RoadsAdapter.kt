@@ -26,7 +26,7 @@ class RoadsAdapter(private val listener:IRoadListener) : ListAdapter<RoadWithSta
             }
             tvDescription.text = stationNames
             itemLayout.setOnClickListener {
-                listener.itemRoadClick(0)
+                listener.itemRoadClick(roadData.roadData.id)
             }
         }
     }

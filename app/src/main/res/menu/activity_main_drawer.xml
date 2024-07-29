@@ -7,6 +7,12 @@
             android:icon="@drawable/ic_menu_home"
             android:title="@string/menu_home" />
         <item
+            android:id="@+id/nav_driver_home"
+            android:checked="true"
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/menu_home"
+            />
+        <item
             android:id="@+id/nav_driver"
             android:icon="@drawable/ic_menu_driver"
             android:title="@string/cars"

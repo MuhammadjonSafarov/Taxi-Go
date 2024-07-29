@@ -16,6 +16,9 @@ interface DistrictDao {
     @Query("SELECT * FROM district_data")
     suspend fun getAllDistrictWithRegion(): List<RegionWithDistrict>
 
+    @Query("SELECT * FROM district_data WHERE id=:Id")
+    suspend fun getDistrictWithRegion(Id:Long): RegionWithDistrict?
+
     @Query("SELECT * FROM district_data WHERE region_id=:regionId")
     suspend fun getByRegionIdAll(regionId: Long): List<DistrictData>
 

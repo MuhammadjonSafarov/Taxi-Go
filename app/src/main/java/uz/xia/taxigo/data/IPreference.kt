@@ -1,5 +1,8 @@
 package uz.xia.taxigo.data
 
+import uz.xia.taxigo.data.local.entity.CarData
+import uz.xia.taxigo.data.remote.model.car.CarDataResponse
+
 interface IPreference {
     var language:String
     var accessToken: String
@@ -9,6 +12,7 @@ interface IPreference {
     var loginTime: Long
 
     var userId:Long
+    var mainCarId:Long
     var userName: String
     var userPassword: String
     var userLogin: String
@@ -30,4 +34,6 @@ interface IPreference {
     var isYandexMapRoute:Boolean
 
     var isNotMoreChoosingMap:Boolean
+
+    var userCarData: String
 }
