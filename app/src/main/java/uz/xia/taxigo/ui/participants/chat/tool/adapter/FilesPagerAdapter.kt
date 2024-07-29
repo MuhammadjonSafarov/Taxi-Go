@@ -5,7 +5,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import uz.xia.taxigo.ui.participants.chat.tool.audio.AudioSelectFragment
-import uz.xia.taxigo.ui.participants.chat.location.LocationSelectFragment
 import uz.xia.taxigo.ui.participants.chat.tool.photo.PhotoSelectFragment
 import uz.xia.taxigo.ui.participants.chat.tool.photo.adapter.PhotoSelectListener
 import uz.xia.taxigo.ui.participants.chat.tool.video.VideoSelectFragment

@@ -53,15 +53,23 @@
     <string name="save">Saqlash</string>
     <string name="app_version">Ilova naqli v%s</string>
     <string name="car_tools_text">Ravon Lacetti (Gentra) . <b>Биринчи - позиция</b>  <b>(Механика)</b> </string>
+    <string name="station">Bekatlar</string>
 
     <string-array name="colors">
         <item>Oq</item>
         <item>Qora</item>
         <item>Qizil</item>
         <item>Ko\'k</item>
-        <item>Mokri asfalt</item>
-        <item>Motiviy</item>
-        <item>Black Blue</item>
+        <item>Sariq</item>
+        <item>Yashil</item>
+        <item>Pushti</item>
         <item>Moviy</item>
+        <item>Jigarrang</item>
+        <item>Kulrang</item>
+        <item>Malla</item>
+        <item>Mokri asfalt</item>
+        <item>Kumushrang</item>
+        <item>To\'q ko\'k</item>
+        <item>Motiviy</item>
     </string-array>
 </resources>

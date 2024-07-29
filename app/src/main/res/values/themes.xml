@@ -212,4 +212,15 @@
         <item name="android:navigationBarColor">@color/colorPrimary</item>
     </style>
 
+    <style name="progressBarBlue" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">@color/water_blue</item>
+    </style>
+
+    <style name="MyDatePickerTheme" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+    </style>
+    <style name="MyDatePicker" parent="android:Widget.Material.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
+    </style>
+
 </resources>

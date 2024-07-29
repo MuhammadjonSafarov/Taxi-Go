@@ -8,7 +8,8 @@ data class UserData(
     val image: String,
     val userName: String,
     val gender: String,
-    val status: Long=0L,
-    val createAt:String?="",
-    val updateAt:String?=""
+    val mainCarId: Long?= 0L,
+    val status: Long = 0L,
+    val createAt: String? = "",
+    val updateAt: String? = ""
 )

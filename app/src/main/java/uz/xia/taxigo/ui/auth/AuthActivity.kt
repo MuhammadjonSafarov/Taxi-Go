@@ -14,6 +14,5 @@ class AuthActivity :AppCompatActivity() {
         setStatusBarColor(R.color.colorWhite, R.color.colorBlack, false)
         binding= ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
     }
 }

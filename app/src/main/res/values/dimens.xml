@@ -16,4 +16,7 @@
     <dimen name="margin">8dp</dimen>
     <dimen name="margin_medium">12dp</dimen>
     <dimen name="margin_10">10dp</dimen>
+    <dimen name="progress_layout_height">42dp</dimen>
+    <dimen name="progress_layout_radius">10dp</dimen>
+    <dimen name="progress_layout_margin">18dp</dimen>
 </resources>

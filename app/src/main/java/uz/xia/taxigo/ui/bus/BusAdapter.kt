@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil.ItemCallback
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import timber.log.Timber
 import uz.xia.taxigo.R
 import uz.xia.taxigo.data.remote.model.bus.Schedule
 import uz.xia.taxigo.databinding.ItemBusScheduleBinding
@@ -34,7 +35,7 @@ class BusAdapter : ListAdapter<Schedule, BusAdapter.ScheduleVH>(ItemScheduleDiff
             val description = when (it.days) {
                 is List<*> -> {
                     if (it.days.isEmpty()) {
-                        "( Har kuni )"
+                        " Har kuni"
                     } else {
                         "Haftaning kunlarida"
                     }
@@ -43,7 +44,6 @@ class BusAdapter : ListAdapter<Schedule, BusAdapter.ScheduleVH>(ItemScheduleDiff
                     "Oyning kunlarida"
                 }
             }
-
             tvDescription.text = description
         }
     }

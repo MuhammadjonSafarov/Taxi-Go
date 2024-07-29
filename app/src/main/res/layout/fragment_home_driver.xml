@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <com.ncorti.slidetoact.SlideToActView
+        android:id="@+id/example_gray_on_green"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rotate_icon="false"
+        app:animation_duration="240"
+        app:border_radius="36dp"
+        app:area_margin="2dp"
+        app:icon_margin="24dp"
+        app:bounce_duration="250"
+        app:slider_icon_color="@color/white"
+        app:slider_icon="@drawable/ic_slider_right_arrow"
+        app:bounce_repeat="@integer/material_motion_duration_long_1"
+        app:inner_color="#00c2ff"
+        app:outer_color="@color/white"
+        app:slider_height="72dp"
+        app:slider_locked="false"
+        app:text="Moshinani qo'yish"
+        app:text_size="18dp"
+        app:text_style="bold"
+        app:text_color="@color/black"
+
+        android:elevation="2dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginHorizontal="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

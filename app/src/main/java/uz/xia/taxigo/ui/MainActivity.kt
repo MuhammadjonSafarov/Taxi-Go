@@ -9,14 +9,21 @@ import android.location.Location
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
-import android.util.Log
+import android.view.Menu
 import android.view.View
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
+import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -33,20 +40,20 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.location.LocationSettingsResponse
 import com.google.android.gms.location.LocationSettingsStatusCodes
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import uz.xia.taxigo.R
+import uz.xia.taxigo.data.IPreference
+import uz.xia.taxigo.data.remote.enumrition.UserRoleType
 import uz.xia.taxigo.databinding.ActivityMainBinding
-import uz.xia.taxigo.services.NOTIFICATION
 import uz.xia.taxigo.ui.home.ILocationRequestListener
 import uz.xia.taxigo.utils.isCheckLocationPermission
 import uz.xia.taxigo.utils.lazyFast
 import uz.xia.taxigo.utils.setStatusBarColor
+import javax.inject.Inject
 
 private const val TAG = "MainActivity"
 private const val DEFAULT_INACTIVITY_DELAY_IN_MILLISECONDS = 200
@@ -57,11 +64,14 @@ const val REQUEST_CODE = 1_001
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), OnSuccessListener<LocationSettingsResponse>,
-    OnFailureListener, ILocationRequestListener {
+    OnFailureListener, ILocationRequestListener, NavController.OnDestinationChangedListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private val navController by lazyFast { supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment }
+
+    @Inject
+    lateinit var preferences: IPreference
     private var locationPermissionGranted = false
     private val fusedLocationProviderClient: FusedLocationProviderClient by lazyFast {
         LocationServices.getFusedLocationProviderClient(this)
@@ -71,6 +81,7 @@ class MainActivity : AppCompatActivity(), OnSuccessListener<LocationSettingsResp
     }
     private var requestingLocationUpdates: Boolean = false
     private var hasEnableLocation: Boolean = false
+
     private val locationCallback = object : LocationCallback() {
         override fun onLocationResult(locationResult: LocationResult) {
             super.onLocationResult(locationResult)
@@ -86,6 +97,7 @@ class MainActivity : AppCompatActivity(), OnSuccessListener<LocationSettingsResp
             }
         }
     }
+
     private var locationRequest: LocationRequest? = null
     private val locationSettingsRequest by lazyFast {
         LocationSettingsRequest.Builder().addLocationRequest(locationRequest!!).build()
@@ -99,10 +111,10 @@ class MainActivity : AppCompatActivity(), OnSuccessListener<LocationSettingsResp
         setSupportActionBar(binding.appBarMain.toolbar)
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
-
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home,
+                R.id.nav_driver_home,
                 R.id.nav_driver,
                 R.id.nav_buses,
                 R.id.nav_address,
@@ -113,36 +125,64 @@ class MainActivity : AppCompatActivity(), OnSuccessListener<LocationSettingsResp
             ), drawerLayout
         )
         val navController = navController.navController
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener(this)
+
+        /* menu */
+        val role = preferences.userRole
+        val navMenu: Menu = navView.menu
+        navMenu.findItem(R.id.nav_driver_home).isVisible = (role == UserRoleType.DRIVER.name)
+        navMenu.findItem(R.id.nav_home).isVisible = (role != UserRoleType.DRIVER.name)
+        navMenu.findItem(R.id.nav_participants).isVisible = (role != UserRoleType.GUEST.name)
+
+        /* header */
         val headerView: View = navView.getHeaderView(0)
+        val avatarCard = headerView.findViewById<CardView>(R.id.cardView2)
         val avatarView = headerView.findViewById<AppCompatImageView>(R.id.avatar_image)
+        val fullName = headerView.findViewById<TextView>(R.id.fullName)
+        val phone = headerView.findViewById<TextView>(R.id.phone)
+        val driverIcon = headerView.findViewById<LinearLayout>(R.id.driver_icon)
+        val login = headerView.findViewById<Button>(R.id.login)
+
+        fullName.isVisible = (role != UserRoleType.GUEST.name)
+        avatarCard.isVisible = (role != UserRoleType.GUEST.name)
+        phone.isVisible = (role != UserRoleType.GUEST.name)
+        driverIcon.isVisible = (role == UserRoleType.DRIVER.name)
+        login.isVisible = (role == UserRoleType.GUEST.name)
+
         avatarView.setOnClickListener {
             drawerLayout.closeDrawer(GravityCompat.START, true)
             navController.navigate(R.id.nav_profile)
         }
+        login.setOnClickListener {
+            drawerLayout.closeDrawer(GravityCompat.START, true)
+            navController.navigate(R.id.loginFragment)
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (!checkNotificationPermission()) {
                 requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 1_000)
             }
         }
 
-      /*  val text = savedInstanceState?.getString(NOTIFICATION)?:""
-        if (text.isNotEmpty()){
-            Toast.makeText(this, "text", Toast.LENGTH_SHORT).show()
-        }
-        Timber.d("$TAG Message $text")
-        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-            if (!task.isSuccessful) {
-                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
-                return@OnCompleteListener
-            }
+        /*  val text = savedInstanceState?.getString(NOTIFICATION)?:""
+          if (text.isNotEmpty()){
+              Toast.makeText(this, "text", Toast.LENGTH_SHORT).show()
+          }
+          Timber.d("$TAG Message $text")
+          FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+              if (!task.isSuccessful) {
+                  Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                  return@OnCompleteListener
+              }
 
-            // Get new FCM registration token
-            val token = task.result
-            Timber.d("TAG token:$token")
-            Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
-        })*/
+              // Get new FCM registration token
+              val token = task.result
+              Timber.d("TAG token:$token")
+              Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
+          })*/
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -154,6 +194,7 @@ class MainActivity : AppCompatActivity(), OnSuccessListener<LocationSettingsResp
         hasEnableLocation = false
         onLocation()
     }
+
     private fun onLocation() {
         if (!isCheckLocationPermission()) {
             requestPermissions(
@@ -212,7 +253,7 @@ class MainActivity : AppCompatActivity(), OnSuccessListener<LocationSettingsResp
     @SuppressLint("MissingSuperCall")
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-        Timber.d("$TAG onNewIntent ${intent?.extras?.getString("type")?:""}")
+        Timber.d("$TAG onNewIntent ${intent?.extras?.getString("type") ?: ""}")
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -256,9 +297,18 @@ class MainActivity : AppCompatActivity(), OnSuccessListener<LocationSettingsResp
             Manifest.permission.POST_NOTIFICATIONS
         ) == PackageManager.PERMISSION_GRANTED
     }
+
     override fun onPause() {
         super.onPause()
         fusedLocationProviderClient.removeLocationUpdates(locationCallback)
+    }
+
+    override fun onDestinationChanged(
+        controller: NavController,
+        destination: NavDestination,
+        arguments: Bundle?
+    ) {
+        binding.appBarMain.appBarLayout.isVisible = (destination.id !in listOf(R.id.loginFragment,R.id.welcomeFragment))
     }
 }
 

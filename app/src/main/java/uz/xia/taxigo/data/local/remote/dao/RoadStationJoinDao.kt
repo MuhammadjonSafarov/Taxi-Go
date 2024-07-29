@@ -20,6 +20,9 @@ interface RoadStationJoinDao {
     suspend fun getStationsForRoads(roadId: Long): List<StationData>
 
     @Query("SELECT * FROM station_data s INNER JOIN road_station_join r ON s.id = r.station_id WHERE r.road_id =:roadId GROUP BY s.id ORDER BY r.order_id")
+    suspend fun getStationsWitRoad(roadId: Long): List<StationData>
+
+    @Query("SELECT * FROM station_data s INNER JOIN road_station_join r ON s.id = r.station_id WHERE r.road_id =:roadId GROUP BY s.id ORDER BY r.order_id")
     suspend fun getStationsWithRegionForRoads(roadId: Long): List<StationWithRegions>
 
     @Query("SELECT s.name_uz_lt FROM station_data s INNER JOIN road_station_join  r ON s.id = r.station_id WHERE r.road_id =:roadId GROUP BY s.id ORDER BY r.order_id ASC")

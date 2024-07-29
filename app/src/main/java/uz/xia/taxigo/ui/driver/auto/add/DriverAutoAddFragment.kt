@@ -1,8 +1,8 @@
 package uz.xia.taxigo.ui.driver.auto.add
 
+import android.app.DatePickerDialog
 import android.os.Bundle
-import android.text.InputFilter
-import android.text.InputFilter.AllCaps
+import android.widget.CompoundButton
 import androidx.core.text.HtmlCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.setFragmentResultListener
@@ -10,14 +10,15 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 import uz.xia.taxigo.R
+import uz.xia.taxigo.data.IPreference
 import uz.xia.taxigo.data.remote.model.car.AutoModel
 import uz.xia.taxigo.data.remote.model.car.CarColorType
-import uz.xia.taxigo.data.remote.model.car.CarData
+import uz.xia.taxigo.data.remote.model.car.CarDataRequest
+import uz.xia.taxigo.data.remote.model.car.CarDataResponse
 import uz.xia.taxigo.databinding.FragmentDriverAutoAddBinding
-import uz.xia.taxigo.utils.MaskWatcher
 import uz.xia.taxigo.utils.dateFormat
 import uz.xia.taxigo.utils.gone
 import uz.xia.taxigo.utils.lazyFast
@@ -27,23 +28,57 @@ import uz.xia.taxigo.utils.widget.SimpleSpinner
 import uz.xia.taxigo.utils.widget.SimpleTextWatcher
 import uz.xia.taxigo.utils.widget.base.BaseFragment
 import uz.xia.taxigo.utils.widget.base.ResourceUI
-import java.time.Instant
+import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Date
-import java.util.Timer
+import javax.inject.Inject
 
 @AndroidEntryPoint
-class DriverAutoAddFragment : BaseFragment(R.layout.fragment_driver_auto_add) {
+class DriverAutoAddFragment : BaseFragment(R.layout.fragment_driver_auto_add),
+    CompoundButton.OnCheckedChangeListener {
 
     private val binding: FragmentDriverAutoAddBinding by viewBinding()
     private val mViewModel: DriverAutoAddViewModel by viewModels()
     private val navController by lazyFast {
         Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main)
     }
-    private val carStatusObserver = Observer<ResourceUI<CarData>?> {
+
+    @Inject
+    lateinit var preference: IPreference
+    private val dateFormat = SimpleDateFormat("dd.MM.yyyy")
+    private val autoYearCalendar = Calendar.getInstance()
+
+
+    private val autoYearDateListener =
+        DatePickerDialog.OnDateSetListener { dialog, year: Int, month: Int, day: Int ->
+            autoYearCalendar.set(year, month, day)
+            val selectDate = dateFormat.format(autoYearCalendar.time)
+            binding.etAutoDate.text = selectDate
+            mViewModel.carData.carManufactureDate = autoYearCalendar.timeInMillis
+        }
+
+    private val autoYearDateDialog by lazyFast {
+        DatePickerDialog(
+            requireContext(),
+            R.style.MyDatePickerTheme,
+            autoYearDateListener,
+            autoYearCalendar.get(Calendar.YEAR),
+            autoYearCalendar.get(Calendar.MONTH),
+            autoYearCalendar.get(Calendar.DAY_OF_MONTH)
+        )
+    }
+
+    private val carStatusObserver = Observer<ResourceUI<CarDataResponse>?> {
         when (it) {
             ResourceUI.Loading -> binding.progressBar.show()
             is ResourceUI.Resource -> {
+                val data = it.data
                 binding.progressBar.gone()
+                val gson = Gson()
+                if (data?.mainCar == true) {
+                    preference.mainCarId = data.id
+                    preference.userCarData = gson.toJson(data,CarDataResponse::class.java)
+                }
                 navController.navigateUp()
             }
 
@@ -71,9 +106,7 @@ class DriverAutoAddFragment : BaseFragment(R.layout.fragment_driver_auto_add) {
     }
 
     private val manufactureDate = Observer<Boolean> {
-        binding.InputLayoutAutoDate.error =
-            if (it) binding.InputLayoutAutoDate
-                .context.getString(R.string.auto_date_not_fount) else null
+        binding.errorAutoDate.isVisible = it
     }
 
     private val autoColorTypeSelectListener = object : SimpleSpinner.ItemSelectedListener {
@@ -84,8 +117,21 @@ class DriverAutoAddFragment : BaseFragment(R.layout.fragment_driver_auto_add) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val carData = arguments?.getParcelable<CarData>("car_data")
-        mViewModel.carData = carData ?: CarData()
+        val carData = arguments?.getParcelable<CarDataResponse>("car_data")
+        if (carData != null) {
+            mViewModel.carData = CarDataRequest(
+                id = carData.id,
+                autoData = carData.autoData,
+                color = carData.color,
+                number = carData.number,
+                carManufactureDate = dateFormat().parse(carData.carManufactureDate).time,
+                stove = carData.stove,
+                conditioner = carData.conditioner,
+                baggage = carData.baggage,
+                switcherBaggage = carData.switcherBaggage
+            )
+        }
+
     }
 
     override fun setup() {
@@ -103,11 +149,10 @@ class DriverAutoAddFragment : BaseFragment(R.layout.fragment_driver_auto_add) {
                 mViewModel.carData.number = text
             }
         }))
-        binding.etAutoDate.addTextChangedListener(SimpleTextWatcher(object : IWatcher {
-            override fun onTextChange(text: String) {
-                mViewModel.carData.carManufactureDate = dateFormat().format(Date())
-            }
-        }))
+        binding.switcherStove.setOnCheckedChangeListener(this)
+        binding.switcherAirConditioner.setOnCheckedChangeListener(this)
+        binding.switcherBaggage.setOnCheckedChangeListener(this)
+        binding.switcherRoofBaggage.setOnCheckedChangeListener(this)
         setData(mViewModel.carData)
     }
 
@@ -118,7 +163,6 @@ class DriverAutoAddFragment : BaseFragment(R.layout.fragment_driver_auto_add) {
         mViewModel.liveColorState.observe(viewLifecycleOwner, carColorObserver)
         mViewModel.liveNumberState.observe(viewLifecycleOwner, carNumberObserver)
         mViewModel.liveManufactureDateState.observe(viewLifecycleOwner, manufactureDate)
-
     }
 
     override fun clicks() {
@@ -127,16 +171,19 @@ class DriverAutoAddFragment : BaseFragment(R.layout.fragment_driver_auto_add) {
             etAutoType.setOnClickListener {
                 navController.navigate(R.id.nav_driverAutoModel)
             }
+            etAutoDate.setOnClickListener {
+                autoYearDateDialog.show()
+            }
             buttonCancel.setOnClickListener {
                 navController.navigateUp()
             }
             buttonConform.setOnClickListener {
-                mViewModel.validateForms()
+                mViewModel.validateForms(preference.userId)
             }
         }
     }
 
-    private fun setData(model: CarData) {
+    private fun setData(model: CarDataRequest) {
         var colorPosition = 0
         val colorTypes = CarColorType.values()
         for (it in colorTypes.indices) {
@@ -148,17 +195,25 @@ class DriverAutoAddFragment : BaseFragment(R.layout.fragment_driver_auto_add) {
         binding.spAutoColor.setSelection(colorPosition)
         binding.etAutoType.text =
             HtmlCompat.fromHtml(model.autoData?.text ?: "", HtmlCompat.FROM_HTML_MODE_LEGACY)
+
         binding.etAutoNumber.setText(model.number)
+        binding.etAutoDate.text = dateFormat.format(Date(model.carManufactureDate))
+        autoYearCalendar.timeInMillis = model.carManufactureDate
 
-        if (model.carManufactureDate.isEmpty()) {
-
-        } else {
-            binding.etAutoDate.setText(model.carManufactureDate)
-        }
         binding.switcherStove.isChecked = model.stove
         binding.switcherAirConditioner.isChecked = model.conditioner
         binding.switcherBaggage.isChecked = model.baggage
         binding.switcherRoofBaggage.isChecked = model.switcherBaggage
+    }
+
+    override fun onCheckedChanged(view: CompoundButton?, isChecked: Boolean) {
+        when (view?.id) {
+            R.id.switcher_stove -> mViewModel.carData.stove = isChecked
+            R.id.switcher_air_conditioner -> mViewModel.carData.conditioner = isChecked
+            R.id.switcher_baggage -> mViewModel.carData.baggage = isChecked
+            R.id.switcher_roof_baggage -> mViewModel.carData.switcherBaggage = isChecked
+            else -> {}
+        }
     }
 
 }

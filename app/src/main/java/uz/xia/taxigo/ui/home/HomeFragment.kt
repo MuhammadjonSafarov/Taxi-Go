@@ -17,17 +17,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
-import com.google.android.gms.tasks.Task
-import com.google.firebase.messaging.FirebaseMessaging
 import com.romainpiel.shimmer.Shimmer
 import dagger.hilt.android.AndroidEntryPoint
 import org.osmdroid.api.IMapController
 import org.osmdroid.bonuspack.clustering.RadiusMarkerClusterer
-import org.osmdroid.bonuspack.utils.BonusPackHelper
 import org.osmdroid.config.Configuration
 import org.osmdroid.events.DelayedMapListener
 import org.osmdroid.events.MapListener
@@ -43,7 +41,6 @@ import org.osmdroid.views.overlay.gestures.RotationGestureOverlay
 import org.osmdroid.views.overlay.infowindow.MarkerInfoWindow
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
-import timber.log.Timber
 import uz.xia.taxigo.R
 import uz.xia.taxigo.data.IPreference
 import uz.xia.taxigo.data.local.entity.GeoLocation
@@ -126,7 +123,7 @@ class HomeFragment : Fragment(), MapListener, Marker.OnMarkerClickListener,
     private val parkingObserver = Observer<ParkingData> {
         val parkDialog = ParkDialogFragment.newInstaince(it.id)
         parkDialog.setListener(this)
-        parkDialog.show(childFragmentManager, "tag")
+        parkDialog.show(childFragmentManager, "dialog_park")
     }
 
     override fun onAttach(context: Context) {
@@ -160,15 +157,6 @@ class HomeFragment : Fragment(), MapListener, Marker.OnMarkerClickListener,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         homeViewModel.geoCode(preferences.latitude, preferences.longitude, "uz")
-        FirebaseMessaging.getInstance().token
-            .addOnCompleteListener { task: Task<String> ->
-                if (!task.isSuccessful) {
-                    Timber.w(TAG + "Fetching FCM registration token failed", task.exception)
-                    return@addOnCompleteListener
-                }
-                val token = task.result
-                Timber.d("$TAG :$token")
-            }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -289,9 +277,13 @@ class HomeFragment : Fragment(), MapListener, Marker.OnMarkerClickListener,
         selectMapAppDialog.show()
     }
 
-    override fun onRoadClickListener(id: Long) {
-        Timber.d("$TAG onRoadClickListener $id")
-        navController.navigate(R.id.nav_cars)
+    override fun onRoadClickListener(parkingId:Long,id: Long) {
+        val bundle = bundleOf(
+            Pair("key_parking_id", parkingId),
+            Pair("key_road_id", id)
+        )
+        navController.navigate(R.id.nav_driver_car_tools, bundle)
+        //navController.navigate(R.id.nav_cars)
     }
 
     private fun startGoogleMaps() {

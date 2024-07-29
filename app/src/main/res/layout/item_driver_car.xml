@@ -9,12 +9,13 @@
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="10dp"
     app:cardElevation="0dp"
-    app:cardMaxElevation="0dp">
-
+    app:cardMaxElevation="0dp"
+    >
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cons_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_for_driver_car_selected_bg">
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_name"
             android:layout_width="0dp"
@@ -44,6 +45,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_name"
             tools:text="Yili 2020"
+            />
+
+        <ImageView
+            android:id="@+id/main_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginTop="@dimen/margin"
+            android:padding="4dp"
+            android:src="@drawable/ic_star_sharp_svgrepo_com"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             />
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_number"

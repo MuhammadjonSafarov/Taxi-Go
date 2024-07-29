@@ -3,14 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/welcomeFragment"
+    >
 
     <fragment
         android:id="@+id/nav_home"
         android:name="uz.xia.taxigo.ui.home.HomeFragment"
         android:label=""
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home"
+        />
 
+    <fragment
+        android:id="@+id/nav_driver_home"
+        android:name="uz.xia.taxigo.ui.driver.home.DriverHomeFragment"
+        android:label="DriverHomeFragment"
+        tools:layout="@layout/fragment_home_driver"
+        />
     <fragment
         android:id="@+id/nav_driver"
         android:name="uz.xia.taxigo.ui.driver.auto.list.DriverCarsFragment"
@@ -85,8 +93,7 @@
         android:id="@+id/nav_add_choose_file"
         android:name="uz.xia.taxigo.ui.participants.chat.tool.ChatToolFragment"
         android:label="AddPhotoFragment"
-        tools:layout="@layout/layout_announcement_add_photo"
-        />
+        tools:layout="@layout/layout_announcement_add_photo" />
 
     <!--add data -->
     <fragment
@@ -139,23 +146,49 @@
         android:id="@+id/stationMapFragment"
         android:name="uz.xia.taxigo.ui.add_data.station.list.StationMapFragment"
         android:label="StationMapFragment"
-        tools:layout="@layout/fragment_stations_map"
-        />
+        tools:layout="@layout/fragment_stations_map" />
     <fragment
         android:id="@+id/nav_music"
         android:name="uz.xia.taxigo.ui.music.MusicFragment"
         android:label="MusicFragment"
-        tools:layout="@layout/fragment_music"/>
+        tools:layout="@layout/fragment_music" />
     <fragment
         android:id="@+id/stationJoinMapFragment"
         android:name="uz.xia.taxigo.ui.add_data.station.list.StationJoinMapFragment"
         android:label="StationJoinMapFragment"
-        tools:layout="@layout/fragment_stations_map"
-        />
+        tools:layout="@layout/fragment_stations_map" />
     <fragment
         android:id="@+id/nav_driverAutoModel"
         android:name="uz.xia.taxigo.ui.driver.auto.add.model_type.DriverAutoModelFragment"
         android:label="DriverAutoModelFragment"
-        tools:layout="@layout/fragment_auto_model_selected"/>
+        tools:layout="@layout/fragment_auto_model_selected" />
+    <fragment
+        android:id="@+id/locationMessageSelectFragment"
+        android:name="uz.xia.taxigo.ui.participants.chat.location.LocationMessageSelectFragment"
+        android:label="Joylashuvni belgilash"
+        tools:layout="@layout/fragment_chat_location" />
+    <fragment
+        android:id="@+id/locationMessageDetailFragment"
+        android:name="uz.xia.taxigo.ui.participants.chat.location.LocationMessageDetailFragment"
+        android:label="Geo joylashuvi"
+        tools:layout="@layout/fragment_chat_location" />
 
+
+    <dialog
+        android:id="@+id/nav_driver_car_tools"
+        android:name="uz.xia.taxigo.ui.driver.home.dialog.DriverCarDetailDialog"
+        tools:layout="@layout/fragment_select_station" />
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="uz.xia.taxigo.ui.auth.WelcomeFragment"
+        android:label="WelcomeFragment"
+        tools:layout="@layout/fragment_welcome"
+        />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="uz.xia.taxigo.ui.auth.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login"
+        />
 </navigation>

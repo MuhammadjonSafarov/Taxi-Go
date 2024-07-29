@@ -9,7 +9,7 @@ import uz.xia.taxigo.utils.device_model.DeviceHeaderProvider
 
 class HeaderInterceptor(
     private val deviceHeaderProvider: DeviceHeaderProvider,
-    private val preference : IPreference
+    private val preference: IPreference
 ) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val appLang = when (preference.language) {
@@ -33,8 +33,9 @@ class HeaderInterceptor(
             .addHeader("X-Lang", appLang)
             .addHeader("X-Dev-Mode", devMode)
             .header("Connection", "close")
-            .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5OTg5MDA2MzY2OTAiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTcwNjk1NTM1MywiZXhwIjoxNzA3MDQxNzUzfQ.oVHxXfyae8N6UHiak6gvaBKNZ9kes5AivwguPZg327w")
-
+        if (preference.accessToken.isNotEmpty()) {
+            requestBuilder.addHeader("Authorization", preference.accessToken)
+        }
         if (preference.fcmToken.isNotEmpty()) {
             requestBuilder.addHeader("X-Fcm-Token", preference.fcmToken)
         }

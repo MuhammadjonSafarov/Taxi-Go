@@ -14,7 +14,8 @@
         android:id="@+id/loginFragment"
         android:name="uz.xia.taxigo.ui.auth.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login"
+        />
     <fragment
         android:id="@+id/registerFragment"
         android:name="uz.xia.taxigo.ui.auth.RegisterFragment"
